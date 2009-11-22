@@ -11,7 +11,7 @@ function GamePlayAssistant(args){
     this.levels = [{
         map: 0,
         colors: 5,
-		set: 100,
+        set: 100,
         startWith: 4,
         time: 60,
         wild_count: 5,
@@ -73,7 +73,7 @@ function GamePlayAssistant(args){
         wild_count: 4,
         multiplier: 50
     }];
-    
+	
     /*Constants*/
 	//Block types
 	this.MAP_TILE_TYPE = 1;
@@ -733,7 +733,7 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
 			this.clearPaths();
             this.calculatePaths(position, []);
             target.addClassName('selected');
-            if (this.selectedSrc && this.blocks[this.selectedSrc]) {
+            if (this.selectedSrc != null && this.blocks[this.selectedSrc]) {
                 this.blocks[this.selectedSrc].removeClassName('selected');
             }
             this.selectedSrc = position;
@@ -767,7 +767,7 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
                 new_blocks.push(this.addRandomBlock());
                 new_blocks.push(this.addRandomBlock());
                 for(var i=0; i<new_blocks.length; i++) {
-					if (new_blocks[i]) {
+					if (new_blocks[i] != null) {
 						this.checkForMatch(new_blocks[i]);
 					}
 				}
@@ -795,11 +795,7 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
     }
 }
 
-GamePlayAssistant.prototype.aboutToActivate = function() {
-	
-	
-	
-}
+
 GamePlayAssistant.prototype.gameOver = function(won){
     this.game_is_over = true;
 	
