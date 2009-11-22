@@ -5,6 +5,22 @@
  * 
  */
 
+Number.prototype.oldToString = Number.prototype.toString;
+Number.prototype.toString = function(commas) {
+	if(!commas) {
+		return this.oldToString();
+	} else {
+		var result = "";
+		var left = this.oldToString();
+		
+		while(left.length > 3) {
+			result = ","+left.slice(-3)+result;
+			left = left.substr(0,left.length-3);
+		}
+		return left+result;
+	}
+}
+
 function StageAssistant() {
 }
 

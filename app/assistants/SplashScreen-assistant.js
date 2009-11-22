@@ -53,7 +53,7 @@ SplashScreenAssistant.prototype.handleOrientation = function(o){
 }
 SplashScreenAssistant.prototype.aboutToActivate = function() {
 	var hs = this.high_score.get() || 0;
-	$('high_score').innerHTML = hs;
+	$('high_score').innerHTML = hs.toString(true);
 	 
 	var saved_state = new Mojo.Model.Cookie("GameState");
 	var ss = saved_state.get();

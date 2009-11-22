@@ -15,9 +15,11 @@ function PreferencesAssistant() {
 	   this.prefs = this.prefs_cookie.get();
 	   	if(!this.prefs) {
 	   		this.prefs = {
-				textures: false
+				sound: false
 			}
+			this.prefs_cookie.put(this.prefs);
 	   }
+	   
 	  
 }
 
@@ -30,18 +32,18 @@ PreferencesAssistant.prototype.setup = function() {
 	var toggleAttr = {trueValue: true, trueLabel: "On", 
                falseValue: false, falseLabel: "Off"}; 
 			
-	this.toggleModel = { value: this.prefs.textures, disabled: false }; 
+	this.toggleModel = { value: this.prefs.sound, disabled: false }; 
 	
-	this.controller.setupWidget("textured_blocks_toggle", toggleAttr, this.toggleModel); 
+	this.controller.setupWidget("sound_toggle", toggleAttr, this.toggleModel); 
 	this.controller.setupWidget("reset_score_button", {},{label: "Reset High Score"});
 	/* add event handlers to listen to events from widgets */
-	this.controller.listen("textured_blocks_toggle", Mojo.Event.propertyChange, this.handleTextureToggle.bindAsEventListener(this));
+	this.controller.listen("sound_toggle", Mojo.Event.propertyChange, this.handleSoundToggle.bindAsEventListener(this));
 	this.controller.listen("reset_score_button", Mojo.Event.tap, this.handleResetHighScoreTap.bindAsEventListener(this));
 }
 
-PreferencesAssistant.prototype.handleTextureToggle = function(event) {
-	Mojo.Log.info('storing pref for texture',this.toggleModel.value);
-	this.prefs.textures = this.toggleModel.value;
+PreferencesAssistant.prototype.handleSoundToggle = function(event) {
+	Mojo.Log.info('storing pref for sound',this.toggleModel.value);
+	this.prefs.sound = this.toggleModel.value;
 	this.prefs_cookie.put(this.prefs);
 	
 }

@@ -6,10 +6,18 @@
  */
 
 function GamePlayAssistant(args){
-    this.maps = [[0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0], [0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0], [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1], [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1]];
+    this.maps = [[0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0], [0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0], [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1], 
+	[1, 1, 1, 0, 1, 1, 1, 
+	 1, 1, 0, 0, 1, 1, 1, 
+	 1, 1, 1, 1, 1, 0, 1, 
+	 0, 0, 1, 1, 1, 0, 0, 
+	 1, 0, 1, 1, 1, 1, 1, 
+	 1, 1, 1, 0, 0, 1, 1, 
+	 1, 1, 1, 0, 1, 1, 1]
+	 ];
  
     this.levels = [{
-        map: 0,
+        map: 3,
         colors: 5,
         set: 100,
         startWith: 4,
@@ -136,6 +144,9 @@ function GamePlayAssistant(args){
     
     //State passed in from start screen
     this.restore = args;
+	
+	pref_cookie = new Mojo.Model.Cookie("Preferences")
+	this.prefs = pref_cookie.get();
       
 }
 
@@ -161,6 +172,7 @@ GamePlayAssistant.prototype.cleanup = function(event){
         this.saved_state.put(ss);   
     }
 }
+
 
 GamePlayAssistant.prototype.updateNextBlocks = function(){
     var nexts = Math.min(3, this.block_queue.length);
@@ -371,6 +383,7 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
         var matching = this.WILD_TILE;
         tmp_win_set = [];
         var gettin_wild = false;
+		
         for (var i = 0; i < 7; i++) {
         	
             var b = this.blocks[indexer(i)];
@@ -422,7 +435,7 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
     }).bind(this));
     
     score_add = (win_set.length) * (win_set.length - 2) * (wild_count + 1) * this.multiplier;
-	
+	Mojo.Log.info(win_set.length, win_set.length-2, wild_count, this.multiplier, score_add);
     if (score_add > 0) {
     	this.score += score_add;
         var last_point_sprite = $('last_points_sprite');
@@ -433,23 +446,24 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
         Mojo.Animation.animateStyle(last_point_sprite, "top", "ease-out",
 			{from: y*44+40,
 			 to: -10,
-			 duration: 1
+			 duration: 2
 			 }
 			
 		);
 		Mojo.Animation.animateStyle(last_point_sprite, "left", "ease-out",
 			{from: x*44+20,
 			 to: 330,
-			 duration: 1
+			 duration: 2
 			 }		
 		);
 		           
     }
-    this.controller.get('score').innerHTML = this.score;
+    this.controller.get('score').innerHTML = this.score.toString(true);
     
 	if (win_set.length >= this.wild_count && this.block_count > win_set.length) {
         this.putSprite(0, src);
-		this.checkForMatch(src);
+		
+		this.checkForMatch.bind(this, src).delay(1);
     }
     return win_set.length;
 }
@@ -670,6 +684,14 @@ GamePlayAssistant.prototype.levelComplete = function(cleared){
 		this.controller.get('level_over_text').innerHTML = "No more moves.";
 	}
 	this.controller.get('level_over').style.display="block";
+	/*if (this.prefs && this.prefs.sound) {
+            this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
+                method: "playFeedback",
+                parameters: {
+                    name: 'browser_01'
+                }
+            });
+        }*/
 }
 
 GamePlayAssistant.prototype.handleNextLevelTap = function(event) {
@@ -720,6 +742,15 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
     
 	//If we tapped a color block
     if (target.type === this.SPRITE_TYPE) {
+		/*if (this.prefs && this.prefs.sound) {
+			this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
+				method: "playFeedback",
+				parameters: {
+					name: 'shuffle_03'
+				}
+			});
+		}*/
+
         if (this.selectedSrc === position) {
 			 //Tapped the same block... deselect
             target.removeClassName('selected');
@@ -753,7 +784,14 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
         this.clearPaths();
         var src_block = this.blocks[this.selectedSrc];
         src_block.removeClassName('selected');
-        
+        /*if (this.prefs.sound) {
+			this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
+				method: "playFeedback",
+				parameters: {
+					name: 'appclose'
+				}
+			});
+		}*/
         this.moveAlongPath(src_block, path, (function(){
             
             this.moving = null;
@@ -811,6 +849,14 @@ GamePlayAssistant.prototype.gameOver = function(won){
 	}
 	$('game_over').style.display = "block";
 	$('game_over').style.width = "260px";
+	/*if (this.prefs.sound) {
+            this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
+                method: "playFeedback",
+                parameters: {
+                    name: 'delete_01'
+                }
+            });
+        }*/
 	
     
 }
