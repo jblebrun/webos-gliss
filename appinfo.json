@@ -1,0 +1,9 @@
+{
+	"id": "info.opensourcejason.preglide",
+	"version": "1.0.0",
+	"vendor": "OSJ",
+	"type": "web",
+	"main": "index.html",
+	"title": "PreGlide",
+	"icon": "preglide_icon.png"
+}

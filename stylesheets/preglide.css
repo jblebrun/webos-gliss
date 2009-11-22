@@ -1,0 +1,257 @@
+/* Put Application specific CSS here. */
+
+#score_area {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 318px;
+    height: 50px;
+	
+	background-color: #FFF;
+
+	
+	
+}
+
+#score_area.horizontal {
+	height: 160px;
+	width: 160px;
+}
+
+#next_area {
+    top: 370px;
+    left: 0px;
+	padding: 5px;
+    position: absolute;
+    width: 318px;
+    height: 68px;
+	
+}
+
+#next_area.horizontal {
+	top: 160px;
+	height: 160px;
+	width: 160px;
+	
+}
+#map_area {
+    top: 50px;
+    left: 0px;
+    position: absolute;
+    width: 308px;
+    height: 308px;
+    background-color: black;
+    border: 6px solid white;
+    color: white;
+	
+	
+}
+#map_area.horizontal {
+	top: 0px;
+	left: 160px;
+}
+
+.clear {
+	clear: both;
+}
+.tap_zone {
+	z-index: 10;
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	
+}
+.map_tile {
+	z-index: 0;
+    background-color: black;
+	position: absolute;
+    width: 44px;
+    height: 44px;
+	
+}
+
+.map_tile.empty {
+    background-color: #331;
+	background-image: url(../images/recess.png);
+	
+	
+}
+.map_tile.hole {	
+	
+	background-image: url(../images/recess.png);
+	background-color: black;	
+	
+	
+}
+
+.map_tile.possible {
+    background-color: #776;
+}
+.hide {
+	display: none;
+}
+.sprite {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	margin: 2px;
+	z-index: 5;	
+	
+	background-image: url(../images/block.png);
+}
+	
+.sprite.wild {
+	background-image: url(../images/block.png), url(../images/rainbow_ani.gif);
+}
+.sprite.overlay {
+	margin: 0;
+}
+
+.sprite.next {
+	position: static;
+	float: left;
+	margin-left: 5px;
+}
+.sprite.title {
+	position: static;
+	float: left;
+	margin-left: 10px;
+}
+.sprite.example {
+	position: static;
+	float: left;
+	border: 2px solid gray;
+	margin: 0px;
+}
+.left {
+	position: static;
+	float: left;
+}
+
+.right {
+	position: static;
+	float: right;
+}
+.sprite.red {
+    background-color: red;
+}
+.sprite.blue {
+    background-color: blue;
+}
+.sprite.green {
+	background-color: green;
+}
+.sprite.yellow {
+    background-color: yellow;
+}
+.sprite.orange {
+    background-color: orange;
+}
+.sprite.purple {
+    background-color: purple;
+}
+.sprite.selected {
+    border: 2px solid white;
+    margin: 0px;
+}
+
+.fader {
+	margin-top: -1px;
+	margin-left: -1px;
+	width: 42px;
+	height: 42px;
+	}
+
+.splash_screen_button.horizontal {
+	float: left;
+}
+
+#last_points_sprite {
+	color: white;
+	float: none;
+	position: absolute;
+	z-index: 2;
+	display: none;
+	
+}
+
+.level_overlay {
+	position: absolute;
+	top: 130px;
+	left: 10px;
+	width: 280px;
+	height: 140px;
+	display: none;
+	opacity: 0.75;
+	z-index: 20;
+	padding: 20px;
+	background-color: gray;
+	border: 1px solid black;
+}
+#game_over_button {
+	opacity: 1.0;
+}
+
+.level_overlay.horizontal {
+	left: 170px;
+	top: 70px;	
+}
+
+.palm-body-text {
+	margin: 5px;
+}
+
+.gamescreen-text {
+	font-size: 20px;
+}
+.palm-page-header-wrapper > .icon {
+	background: url(../preglide_icon_small.png) 10px 10px no-repeat;
+}
+
+.score_wrapper {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+.score_wrapper.horizontal {
+	top: 0px;	
+}
+#clear_next.horizontal {
+	clear: both;
+}
+
+#clear_level.horizontal {
+	clear: both;
+}
+#clear_blocks_left.horizontal {
+	clear: both;
+}
+
+#blocks_left_label.horizontal {
+	float: right;
+}
+
+#blocks_left_label.horizontal {
+	float: left;
+}
+#high_score_area {
+	text-align: center;
+	width: 100%;
+}
+
+#level_text {
+	float: right;
+	font-size: 20px;
+}
+#score_text {
+	float: left;
+	font-size: 20px;
+}
+#level_text.horizontal {
+	float: right;
+	font-size: 20px;
+}
+#score_text.horizontal {
+	float: right;
+	font-size: 20px;
+}

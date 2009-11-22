@@ -1,0 +1,19 @@
+[
+    {"source": "app\/assistants\/stage-assistant.js"},
+    {
+        "scenes": "GamePlay",
+        "source": "app\/assistants\/GamePlay-assistant.js"
+    },
+    {
+        "scenes": "SplashScreen",
+        "source": "app\/assistants\/SplashScreen-assistant.js"
+    },
+    {
+        "scenes": "help",
+        "source": "app\/assistants\/help-assistant.js"
+    },
+    {
+        "scenes": "preferences",
+        "source": "app\/assistants\/preferences-assistant.js"
+    }
+]
