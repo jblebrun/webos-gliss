@@ -242,10 +242,8 @@ GamePlayAssistant.prototype.fadeOutSprite = function(sprite){
 						this.block_count--;
 						this.removing--;
 						
-						Mojo.Log.info('removed:',this.block_count,this.removing);
 						if (this.block_count === 0) {
-							Mojo.Log.info('calling level complete from fadeout');
-                			this.levelComplete(true);
+							this.levelComplete(true);
             			} else if (this.block_queue.length === 0 && this.removing === 0) {
 							this.checkForMoves();
 						}
@@ -257,11 +255,10 @@ GamePlayAssistant.prototype.fadeOutSprite = function(sprite){
 }
 
 GamePlayAssistant.prototype.addRandomBlock = function(){
-	Mojo.Log.info('trying addRandomBlock',this.empty,this.block_count);
 	if(this.game_is_over) {
 		return;
 	}
-	if (this.empty <= this.block_count) {
+	if (this.empty <= this.block_count+1) {
         this.game_is_over = true;
 		return;
     }	
@@ -336,14 +333,12 @@ GamePlayAssistant.prototype.handleOrientation = function(o){
 	
     if (o.position === 4 || o.position === 5) {		
 		for(var i = 0; i<els.length; i++) {
-			Mojo.Log.info('rotating',els[i],els[i].id);
-        	els[i].addClassName('horizontal');
+			els[i].addClassName('horizontal');
 		}       
     } else if(o.position === 2 || o.position ===3) {   
 	 	
         for(var i = 0; i<els.length; i++) {
-			Mojo.Log.info('rotating',els[i],els[i].id);
-        	els[i].removeClassName('horizontal');
+			els[i].removeClassName('horizontal');
 		}
     }
 }
@@ -355,7 +350,6 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
         Mojo.Log.error('no block at', src);
         return;
     }
-    Mojo.Log.info('got a block at',src);
     var win_set = [];
     //Check the row of the moved block's new position for a win
     var y = Math.floor(src / 7);
@@ -516,7 +510,6 @@ GamePlayAssistant.prototype.restoreGame = function() {
     var ss = this.saved_state.get();
 	
     if(!ss.valid) {
-		Mojo.Log.info('invalid save game, starting new');
 		this.saved_state.put({valid: false});
 		this.level = 0;
 		this.startLevel(0);
@@ -546,11 +539,9 @@ GamePlayAssistant.prototype.restoreGame = function() {
 	 * the match would not have been calculated. So figure it out now.
 	 */
 	if (this.moving_to !== null) {
-		Mojo.Log.info('checking for matches at',this.moving_to);
 		this.checkForMatch(this.moving_to);
 		this.moving_to = null;
 	}
-	Mojo.Log.info("game restored:",this.empty,this.block_count);
 }
 
 GamePlayAssistant.prototype.setup = function(event){  
@@ -642,25 +633,20 @@ GamePlayAssistant.prototype.calculatePaths = function(src){
             var position = y * 7 + x;
             
             if (x < 0 || y < 0 || x >= 7 || y >= 7) {
-                //Mojo.Log.info("continuing: oob");
                 continue;
             }
             if (this.blocks[position]) {
-                //Mojo.Log.info('block in position',position,': ',this.blocks[position],'skipping');
                 continue;
             }
             if (this.map_tiles[position].tile_type !== 1) {
-                //Mojo.Log.info('map tile not empty: skipping',position);
                 continue;
             }
             if (this.paths[position] != null) {
-                //Mojo.Log.info('Already visited this one',position);
                 continue;
             }
             path.push([x, y]);
             
             bfs_queue.push([position, path.slice()]);
-            //Mojo.Log.info('setting possibile',position);
             this.map_tiles[position].addClassName('possible');
             
             this.paths[position] = path.slice();
@@ -671,7 +657,6 @@ GamePlayAssistant.prototype.calculatePaths = function(src){
 }
 
 GamePlayAssistant.prototype.levelComplete = function(cleared){
-	Mojo.Log.info('level complete',cleared);
 	if (cleared) {
 		var cb = 1000 * (this.level + 1);
 		var bqb = 0;
@@ -708,7 +693,6 @@ GamePlayAssistant.prototype.checkForMoves = function(){
         moves_possible = true;
     } else {
         for (a in this.accounting) {
-            Mojo.Log.info(a, '=', this.accounting[a]);
             if (this.accounting[a] === 'wild') {
                 continue;
             }
@@ -723,14 +707,13 @@ GamePlayAssistant.prototype.checkForMoves = function(){
     }
 }
 GamePlayAssistant.prototype.handleBlockTap = function(event){
-    
     var target = event.target;
 	if(!target) {
 		Mojo.Log.error('no target');
 		return;
 	}
 	var position = target.position;
-	if(!position) {
+	if(position == null) {
 		Mojo.Log.error('unspecified position');
 		return;
 	}
@@ -800,8 +783,7 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
 					
                 }
             }             
-			Mojo.Log.info('finished move, block count is:',this.block_count);
-            if (this.block_count === 0) {
+			if (this.block_count === 0) {
                 this.levelComplete(true);
             }            
         }).bind(this));
