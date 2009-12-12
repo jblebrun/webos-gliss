@@ -17,7 +17,7 @@ function GamePlayAssistant(args){
 	 ];
  
     this.levels = [{
-        map: 3,
+        map: 0,
         colors: 5,
         set: 100,
         startWith: 4,

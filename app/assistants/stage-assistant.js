@@ -28,9 +28,13 @@ StageAssistant.prototype.setup = function() {
 
 	delete Mojo.Menu.helpItem['checkEnabled'];
 	delete Mojo.Menu.prefsItem['checkEnabled'];
+	var tallScreen = false;
+	if(Mojo && Mojo.Environment && Mojo.Environment.DeviceInfo) {
+		tallScreen = (Mojo.Environment.DeviceInfo.screenHeight === 480);
+	} 
     this.controller.pushScene({
 		name: "SplashScreen",
-		disableSceneScroller: true
+		disableSceneScroller: tallScreen
 	});
 	
 }

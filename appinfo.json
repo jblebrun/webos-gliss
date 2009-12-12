@@ -1,9 +1,9 @@
 {
-	"id": "info.opensourcejason.preglide",
-	"version": "1.0.2",
+	"id": "info.opensourcejason.gliss",
+	"version": "1.1.0",
 	"vendor": "OSJ",
 	"type": "web",
 	"main": "index.html",
-	"title": "PreGlide",
-	"icon": "preglide_icon.png"
+	"title": "Gliss",
+	"icon": "gliss_icon.png"
 }

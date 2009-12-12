@@ -18,6 +18,10 @@ SplashScreenAssistant.prototype.setup = function() {
     }
 	/* this function is for setup tasks that have to happen when the scene is first created */
 		
+	this.tallScreen = false;
+    if(Mojo && Mojo.Environment && Mojo.Environment.DeviceInfo) {
+        this.tallScreen = (Mojo.Environment.DeviceInfo.screenHeight === 480);
+    } 
 	/* use Mojo.View.render to render view templates and add them to the scene, if needed. */
 	this.controller.setupWidget(Mojo.Menu.appMenu, StageAssistant.menuAttr, StageAssistant.menuModel);
 	/* setup widgets here */
@@ -64,7 +68,6 @@ SplashScreenAssistant.prototype.aboutToActivate = function() {
 	}
 	var preferences = new Mojo.Model.Cookie("Preferences");
 	prefs = preferences.get();
-	Mojo.Log.info("prefs:",prefs.textures);
 	
 	/* put in event handlers here that should only be in effect when this scene is active. For
 	   example, key handlers that are observing the document */
@@ -82,8 +85,8 @@ SplashScreenAssistant.prototype.cleanup = function(event) {
 }
 
 SplashScreenAssistant.prototype.handleStartTap = function(event){
-	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:true},'new');
+	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:this.tallScreen},'new');
 }
 SplashScreenAssistant.prototype.handleContinueTap = function(event){
-	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:true},"continue");
+	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:this.tallScreen},"continue");
 }
