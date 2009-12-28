@@ -25,15 +25,30 @@ SplashScreenAssistant.prototype.setup = function() {
 	/* use Mojo.View.render to render view templates and add them to the scene, if needed. */
 	this.controller.setupWidget(Mojo.Menu.appMenu, StageAssistant.menuAttr, StageAssistant.menuModel);
 	/* setup widgets here */
-	this.controller.setupWidget('start_button',{label:"Start Game"},{});
+	this.controller.setupWidget('start_button',{label:"Levels Game"},{});
+	this.controller.setupWidget('start_endless_button',{label:"Endless Game"},{});
+    
 	this.controller.setupWidget('continue_button',{label:"Continue Game"},{disabled: true});
 	/* add event handlers to listen to events from widgets */
-	this.controller.listen($('start_button'), Mojo.Event.tap, this.handleStartTap.bindAsEventListener(this));
-	this.controller.listen($('continue_button'), Mojo.Event.tap, this.handleContinueTap.bindAsEventListener(this));
+	
+	this.controller.listen($('start_button'), Mojo.Event.tap, this.handleStartTap.bindAsEventListener(this, {
+		"continue": false,
+		endless: false
+	}));
+	this.controller.listen($('start_endless_button'), Mojo.Event.tap, this.handleStartTap.bindAsEventListener(this, {
+		"continue": false,
+		"endless": true
+	}));   
+	this.controller.listen($('continue_button'), Mojo.Event.tap, this.handleStartTap.bindAsEventListener(this, {
+		"continue": true,
+		"endless": false
+	}));
 	
 	
 	this.high_score = new Mojo.Model.Cookie("HighScores");
-	this.controller.listen(document, 'orientationchange', this.handleOrientation.bindAsEventListener(this));
+	
+	this.high_score_endless = new Mojo.Model.Cookie("HighScoresEndless");
+    this.controller.listen(document, 'orientationchange', this.handleOrientation.bindAsEventListener(this));
 
 	
 }
@@ -58,6 +73,8 @@ SplashScreenAssistant.prototype.handleOrientation = function(o){
 SplashScreenAssistant.prototype.aboutToActivate = function() {
 	var hs = this.high_score.get() || 0;
 	$('high_score').innerHTML = hs.toString(true);
+	hs = this.high_score_endless.get() || 0;
+    $('high_score_endless').innerHTML = hs.toString(true); 
 	 
 	var saved_state = new Mojo.Model.Cookie("GameState");
 	var ss = saved_state.get();
@@ -84,9 +101,7 @@ SplashScreenAssistant.prototype.cleanup = function(event) {
 	   a result of being popped off the scene stack */
 }
 
-SplashScreenAssistant.prototype.handleStartTap = function(event){
-	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:this.tallScreen},'new');
+SplashScreenAssistant.prototype.handleStartTap = function(event, args){
+	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:this.tallScreen},args);
 }
-SplashScreenAssistant.prototype.handleContinueTap = function(event){
-	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:this.tallScreen},"continue");
-}
+

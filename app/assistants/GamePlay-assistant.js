@@ -6,91 +6,121 @@
  */
 
 function GamePlayAssistant(args){
-    this.maps = [[0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0], [0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0], [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1], 
+    this.maps = [
+	[
+	0,1,1,1,1,1,0,
+	1,1,1,1,1,1,1,
+	1,1,1,1,1,1,1,
+	1,1,1,0,1,1,1,
+	1,1,1,1,1,1,1,
+	1,1,1,1,1,1,1,
+	0,1,1,1,1,1,0
+	
+	],
+	
+	[
+	 0, 0, 1, 1, 1, 0, 0,
+	 0, 0, 1, 1, 1, 0, 0,
+	 1, 1, 1, 1, 1, 1, 1,
+	 1, 1, 1, 0, 1, 1, 1,
+	 1, 1, 1, 1, 1, 1, 1, 
+	 0, 0, 1, 1, 1, 0, 0, 
+	 0, 0, 1, 1, 1, 0, 0
+	 
+	 ], 
+	 
+	[1, 1, 1, 0, 1, 1, 1, 
+	 1, 1, 1, 0, 1, 1, 1, 
+	 1, 1, 1, 1, 1, 1, 1, 
+	 0, 0, 1, 1, 1, 0, 0, 
+	 1, 1, 1, 1, 1, 1, 1, 
+	 1, 1, 1, 0, 1, 1, 1, 
+	 1, 1, 1, 0, 1, 1, 1], 
+	 
 	[1, 1, 1, 0, 1, 1, 1, 
 	 1, 1, 0, 0, 1, 1, 1, 
 	 1, 1, 1, 1, 1, 0, 1, 
 	 0, 0, 1, 1, 1, 0, 0, 
 	 1, 0, 1, 1, 1, 1, 1, 
 	 1, 1, 1, 0, 0, 1, 1, 
-	 1, 1, 1, 0, 1, 1, 1]
+	 1, 1, 1, 0, 1, 1, 1],
+	 
+	 [0, 1, 1, 1, 1, 1, 1, 0,
+      1, 0, 1, 1, 1, 1, 0, 1,
+      1, 1, 0, 1, 1, 0, 1, 1,
+      1, 1, 1, 1, 1, 1, 1, 1,
+      1, 1, 1, 1, 1, 1, 1, 1,
+      1, 1, 0, 1, 1, 0, 1, 1,
+      1, 0, 1, 1, 1, 1, 0, 1,
+      0, 1, 1, 1, 1, 1, 1, 0     
+     ],
+	 [0, 1, 1, 0, 0, 1, 1, 0,
+      1, 1, 1, 0, 0, 1, 1, 1,
+      1, 1, 1, 0, 0, 1, 1, 1,
+	  0, 0, 1, 1, 1, 1, 0, 0,
+	  0, 0, 1, 1, 1, 1, 0, 0,
+	  1, 1, 1, 0, 0, 1, 1, 1,
+      1, 1, 1, 0, 0, 1, 1, 1,
+      0, 1, 1, 0, 0, 1, 1, 0	 
+	 ],
+	 [0, 0, 1, 1, 1, 1, 1, 0, 0,
+      0, 0, 1, 1, 1, 1, 1, 0, 0,
+      1, 1, 0, 1, 1, 1, 0, 1, 1,
+      1, 1, 1, 1, 1, 1, 1, 1, 1,
+      1, 1, 1, 1, 0, 1, 1, 1, 1,
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 
+      1, 1, 0, 1, 1, 1, 0, 1, 1,
+      0, 0, 1, 1, 1, 1, 1, 0, 0, 
+      0, 0, 1, 1, 1, 1, 1, 0, 0,
+          
+     ],
+	 [1, 1, 1, 0, 0, 0, 1, 1, 1,
+      1, 1, 1, 0, 0, 0, 1, 1, 1,
+      1, 1, 1, 0, 0, 0, 1, 1, 1,
+      0, 0, 1, 1, 1, 1, 1, 0, 0,
+      0, 0, 1, 1, 0, 1, 1, 0, 0,
+      0, 0, 1, 1, 1, 1, 1, 0, 0, 
+      1, 1, 1, 0, 0, 0, 1, 1, 1,
+      1, 1, 1, 0, 0, 0, 1, 1, 1, 
+	  1, 1, 1, 0, 0, 0, 1, 1, 1,
+	      
+     ],
+	 
 	 ];
  
-    this.levels = [{
-        map: 0,
-        colors: 5,
-        set: 100,
-        startWith: 4,
-        time: 60,
-        wild_count: 5,
-        multiplier: 5
-    }, {
-        map: 1,
-        colors: 5,
-        set: 100,
-        startWith: 4,
-        time: 60,
-        wild_count: 5,
-        multiplier: 10
-    }, {
-        map: 2,
-        colors: 5,
-        set: 100,
-        startWith: 4,
-        time: 60,
-        wild_count: 4,
-        multiplier: 15
-    }, {
-        map: 3,
-        colors: 5,
-        set: 100,
-        startWith: 4,
-        time: 60,
-        wild_count: 4,
-        multiplier: 20
-    }, {
-        map: 0,
-        colors: 6,
-        set: 150,
-        startWith: 6,
-        time: 60,
-        wild_count: 5,
-        multiplier: 25
-    }, {
-        map: 1,
-        colors: 6,
-        set: 150,
-        startWith: 6,
-        time: 60,
-        wild_count: 5,
-        multiplier: 30
-    }, {
-        map: 2,
-        colors: 6,
-        set: 150,
-        startWith: 6,
-        time: 60,
-        wild_count: 4,
-        multiplier: 40
-    }, {
-        map: 3,
-        colors: 6,
-        set: 150,
-        startWith: 6,
-        time: 60,
-        wild_count: 4,
-        multiplier: 50
-    }];
+    this.levels = [
+	{map: 0, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 5}, 
+	{map: 1, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 10}, 
+    {map: 2, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 15}, 
+    {map: 3, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 20}, 
+    {map: 0, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 35}, 
+    {map: 1, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 30}, 
+    {map: 2, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 35}, 
+    {map: 3, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 40}, 
+    {map: 4, colors: 5, set: 100, startWith: 6,  time: 60, wild_count: 5, multiplier: 45}, 
+    {map: 5, colors: 5, set: 100, startWith: 6,  time: 60, wild_count: 5, multiplier: 50}, 
+    {map: 4, colors: 6, set: 100, startWith: 8,  time: 60, wild_count: 4, multiplier: 60}, 
+    {map: 5, colors: 6, set: 100, startWith: 8,  time: 60, wild_count: 4, multiplier: 70}, 
+    {map: 6, colors: 5, set: 100, startWith: 8,  time: 60, wild_count: 5, multiplier: 80}, 
+    {map: 7, colors: 5, set: 100, startWith: 8,  time: 60, wild_count: 5, multiplier: 90}, 
+    {map: 6, colors: 6, set: 100, startWith: 10, time: 60, wild_count: 4, multiplier: 100}, 
+    {map: 7, colors: 6, set: 100, startWith: 10, time: 60, wild_count: 4, multiplier: 110}
+    
+	];
 	
     /*Constants*/
 	//Block types
 	this.MAP_TILE_TYPE = 1;
 	this.SPRITE_TYPE = 2;
 	
+	this.MAGIC = "JBL";
+	
 	//Sizes
     this.BLOCK_SIZE = 40;
     this.TILE_SIZE = 44;
-    
+    this.SIZE = 7;
+	this.MAXSIZE = 9;
+	
 	//Tile types
 	this.HOLE_TILE = 0;
     this.EMPTY_TILE = 1;
@@ -109,7 +139,8 @@ function GamePlayAssistant(args){
     this.saved_blocks = new Mojo.Model.Cookie("GameBlocks");
     this.saved_queue = new Mojo.Model.Cookie("BlockQueue");
     this.high_scores = new Mojo.Model.Cookie("HighScores");
-	
+	this.high_scores_endless = new Mojo.Model.Cookie("HighScoresEndless");
+    
     //Transient state
     this.selectedSrc = null;
     this.moving = null;
@@ -143,7 +174,8 @@ function GamePlayAssistant(args){
 	this.moving_to = null;
     
     //State passed in from start screen
-    this.restore = args;
+    this.restore = args['continue'];
+	this.endless = args.endless;
 	
 	pref_cookie = new Mojo.Model.Cookie("Preferences")
 	this.prefs = pref_cookie.get();
@@ -158,6 +190,7 @@ GamePlayAssistant.prototype.cleanup = function(event){
             level: this.level,
 			moving_to: this.moving_to,
 			valid: true,
+			endless: this.endless
             
         };
         
@@ -176,32 +209,33 @@ GamePlayAssistant.prototype.cleanup = function(event){
 
 GamePlayAssistant.prototype.updateNextBlocks = function(){
     var nexts = Math.min(3, this.block_queue.length);
-    $$('.sprite.next').each(function(el){
-        el.style.display = "none";
-    });
-    for (var i = 0; i < nexts; i++) {
-        $('next_block_' + i).style.display = 'block';
-        this.controller.get('next_block_' + i).className = "sprite | next "+ this.sprite_classes[this.block_queue[i]];
-    }
+    
+	for(var i = 0; i < nexts; i++) {
+		this.next_sprites[i].className = "sprite | next "+ this.sprite_classes[this.block_queue[i]];
+	}
 	
-    $('remaining').innerHTML = this.block_queue.length;   
+    if (!this.endless) {
+		this.remaining_span.innerHTML = this.block_queue.length;
+	}
 }
 
 GamePlayAssistant.prototype.buildBlockQueue = function(count, colors){
-    this.block_queue = [];
+    this.block_queue.length = 0;
     for (var i = 0; i < count; i++) {
         this.block_queue.push(Math.floor(Math.random() * colors) + 1);
     }
 }
 
 GamePlayAssistant.prototype.putSprite = function(type, position){
+	var map_tile = this.map_tiles[position];
     var sprite = this.sprite_pool.shift();
 	sprite.className = "sprite | " +this.sprite_classes[type];
 	this.accounting[this.sprite_classes[type]]++;
     sprite.tile_type = type;
-    sprite.style.top = this.TILE_SIZE * Math.floor(position / 7) + "px";
-    sprite.style.left = this.TILE_SIZE * (position % 7) + "px";
-    sprite.style.display = "block";
+    sprite.style.top = map_tile.style.top + "px";
+    sprite.style.left = map_tile.style.left + "px";
+    sprite.style.display = "inline";
+	sprite.fader.style.display = "none";
 	sprite.style.opacity = 1.0;
 	sprite.position = position;
     this.blocks[position] = sprite;
@@ -212,7 +246,7 @@ GamePlayAssistant.prototype.removeSprite = function(sprite) {
 	this.accounting[this.sprite_classes[sprite.tile_type]]--;
 	this.sprite_pool.push(sprite);
 	sprite.style.display = "none";
-	delete this.blocks[sprite.position];
+	this.blocks[sprite.position] = null;
 	sprite.position = null;	
 }
 
@@ -225,13 +259,14 @@ GamePlayAssistant.prototype.fadeOutSprite = function(sprite){
 		delete this.blocks[sprite.position];
 		sprite.position = null;
 		
-		var fader = document.createElement('div');
-		fader.className = "sprite | fader";
-		fader.style.backgroundColor = 'white';
-		
-		fader.style.opacity = 0.0;
-		sprite.appendChild(fader);
+		var fader = sprite.fader;
+		fader.style.display = "block";
 		this.removing++;
+		
+		var that = this;
+		/* TODO
+		 * Swtich to CSS transitions
+		 */
 		Mojo.Animation.animateStyle(fader, 'opacity', 'linear', {
 			duration: 0.25,
 			from: 0.0,
@@ -239,7 +274,7 @@ GamePlayAssistant.prototype.fadeOutSprite = function(sprite){
 			styleSetter: function(value){
 				fader.style.opacity = value;
 			},
-			onComplete: (function(){
+			onComplete: function(){
 				sprite.style.opacity = 1.0;
 				Mojo.Animation.animateStyle(sprite, 'opacity', 'linear', {
 					duration: 0.5,
@@ -248,20 +283,19 @@ GamePlayAssistant.prototype.fadeOutSprite = function(sprite){
 					styleSetter: function(value){
 						sprite.style.opacity = value;
 					},
-					onComplete: (function(){
+					onComplete: function(){
 						sprite.style.display = "none";
-						fader.remove();
-						this.block_count--;
-						this.removing--;
+						that.block_count--;
+						that.removing--;
 						
-						if (this.block_count === 0) {
-							this.levelComplete(true);
-            			} else if (this.block_queue.length === 0 && this.removing === 0) {
-							this.checkForMoves();
+						if (that.block_count === 0) {
+							that.levelComplete(true);
+            			} else if (that.block_queue.length === 0 && that.removing === 0) {
+							that.checkForMoves();
 						}
-					}).bind(this)
+					}
 				});				
-			}).bind(this)
+			}
 		});
 	}   
 }
@@ -274,33 +308,45 @@ GamePlayAssistant.prototype.addRandomBlock = function(){
         this.game_is_over = true;
 		return;
     }	
-    if (this.block_queue.length == 0) {
+    if (this.block_queue.length === 0) {
         return false;
     }
     
+	
     var type = this.block_queue.shift();
+	if(this.endless) {
+        this.block_queue.push(Math.floor(Math.random() * this.levels[this.level].colors) + 1);
+    }
        
     //+1 because we need to make sure to check at least once
-    
+    //And choice=0 is the break condition
+	
+	//TODO -- speed this loop up by maintaining a list of empty spots
+	//Then just index a random number and splice out.
+	//Push the empty spots on blockmoves and fadeouts
     var choice = Math.floor(Math.random() * (this.empty - this.block_count)) + 1;
-    
-    for (var i = 0; i < 49; i++) {
-    
-        if (this.current_map[i] === 1 && !this.blocks[i]) {
-            choice--;
-        }
-        if (choice === 0) {
-            break;
-        }
-    }
-    this.putSprite(type, i);
+    var i,j;
+	for (var y = 0, l = this.SIZE; y < l; y++) {
+		for (var x = 0, m = this.SIZE; x < m; x++) {
+			i = y*this.MAXSIZE+x;
+			j = y*this.SIZE+x;
+			if (this.current_map[j] === 1 && !this.blocks[i]) {
+				choice--;
+			}
+			if (choice === 0) {
+				y = this.SIZE;
+				break;
+			}
+		}
+	}
+	this.putSprite(type, i);
        
     return i;
 }
 
 
 GamePlayAssistant.prototype.clearPaths = function(){
-    for (var i = 0; i < 49; i++) {
+    for (var i = 0, l=this.MAXSIZE*this.MAXSIZE; i < l; i++) {
         this.paths[i] = null;
         this.map_tiles[i].removeClassName('possible');
     }
@@ -317,24 +363,30 @@ GamePlayAssistant.prototype.moveAlongPath = function(sprite, path, finished_call
 	var curve = "linear";
 	
     var start = path.shift();
-    
+    var that = this;
+	
+	/* TODO
+	 * Switch to CSS transitions
+	 * Once the state management of them
+	 * is correct
+	 */
     if (path[0][0] === start[0]) {   
         Mojo.Animation.animateStyle(sprite, 'top', curve, {
             duration: duration,
             from: start[1] * this.TILE_SIZE,
             to: path[0][1] * this.TILE_SIZE,
-            onComplete: (function(){
-                this.moveAlongPath(sprite, path, finished_callback);
-            }).bind(this)
+            onComplete: function(){
+                that.moveAlongPath(sprite, path, finished_callback);
+            }
         });        
     } else {
         Mojo.Animation.animateStyle(sprite, 'left', curve, {
             duration: duration,
             from: start[0] * this.TILE_SIZE,
             to: path[0][0] * this.TILE_SIZE,
-            onComplete: (function(){
-                this.moveAlongPath(sprite, path, finished_callback);
-            }).bind(this)
+            onComplete: function(){
+                that.moveAlongPath(sprite, path, finished_callback);
+            }
         });       
     }
 }
@@ -344,50 +396,50 @@ GamePlayAssistant.prototype.handleOrientation = function(o){
 	var els = document.getElementsByClassName('rotatable');
 	
     if (o.position === 4 || o.position === 5) {		
-		for(var i = 0; i<els.length; i++) {
+		for(var i = 0, l = els.length; i<l; i++) {
 			els[i].addClassName('horizontal');
 		}       
     } else if(o.position === 2 || o.position ===3) {   
 	 	
-        for(var i = 0; i<els.length; i++) {
+        for(var i = 0, l=els.length; i<l; i++) {
 			els[i].removeClassName('horizontal');
 		}
     }
 }
 
 
-GamePlayAssistant.prototype.checkForMatch = function(src){
 	
-    if (!this.blocks[src]) {
+GamePlayAssistant.prototype.checkForMatch = function(src){
+	if (!this.blocks[src]) {
         Mojo.Log.error('no block at', src);
         return;
     }
     var win_set = [];
     //Check the row of the moved block's new position for a win
-    var y = Math.floor(src / 7);
-    var x = src % 7;
-    
+    var y = this.map_tiles[src].y;
+	var x = this.map_tiles[src].x;
+	Mojo.Log.info("x,y: "+x+", "+y);
+	var MAXSIZE = this.MAXSIZE;
     var indexers = [
-		function(i){
-        	return y * 7 + i;
-    	}, 
-		function(i){
-        	return i * 7 + x;
-    	}
-	];
+        function(i){
+            return y * MAXSIZE + i;
+        }, 
+        function(i){
+            return i * MAXSIZE + x;
+        }
+    ];
     
     var tmp_win_set = [];
     
     for (var f = 0; f < 2; f++) {
-        var indexer = indexers[f];
+		var indexer = indexers[f];
         var matching = this.WILD_TILE;
-        tmp_win_set = [];
+        tmp_win_set.length = 0;
         var gettin_wild = false;
 		
-        for (var i = 0; i < 7; i++) {
-        	
-            var b = this.blocks[indexer(i)];
-
+        for (var i = 0; i < this.SIZE; i++) {
+        	var b = this.blocks[indexer(i)];
+            
             if (b && (b.tile_type == this.WILD_TILE || matching == this.WILD_TILE || b.tile_type == matching)) {
                 tmp_win_set.push(b);                
                 if (!gettin_wild && b.tile_type === this.WILD_TILE) {
@@ -400,7 +452,7 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
                 if (tmp_win_set.length > 2) {
                     win_set = win_set.concat(tmp_win_set);
                 }
-                if (b) {
+                if (!!b) {
 					//Remove everything from the tmp set 
 					//that's not a wild tile
                     var j = tmp_win_set.length - 1;
@@ -411,7 +463,7 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
                     tmp_win_set.push(b);
                     matching = b.tile_type;
                 } else {                   
-                    tmp_win_set = [];
+                    tmp_win_set.length = 0;
                     matching = this.WILD_TILE;
                 }
             }           
@@ -423,42 +475,56 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
        
     var wild_count = 0;
    
-    win_set.each((function(b){
-        //Already removed
+   
+   for(var w_idx = 0, wl = win_set.length; w_idx < wl; w_idx++) {
+   	    var b = win_set[w_idx];
+		
+		//Already removed, 
+		//Need to check 
+		//since we double-count intersection tile
         if (b.position === null) {
             return;
         }
+		//Keep track of wilds for scoring
         if (b.tile_type === this.WILD_TILE) {
             wild_count++;
         }      
-        this.fadeOutSprite(b);       
-    }).bind(this));
+        this.fadeOutSprite(b); 
+   }
     
     score_add = (win_set.length) * (win_set.length - 2) * (wild_count + 1) * this.multiplier;
-	Mojo.Log.info(win_set.length, win_set.length-2, wild_count, this.multiplier, score_add);
+	//Mojo.Log.info(win_set.length, win_set.length-2, wild_count, this.multiplier, score_add);
     if (score_add > 0) {
     	this.score += score_add;
-        var last_point_sprite = $('last_points_sprite');
+        var last_point_sprite = this.last_points_sprite;
         last_point_sprite.innerHTML = score_add;
 		last_point_sprite.style.display = "block";
-		last_point_sprite.style.top = y*44+40+"px";
-		last_point_sprite.style.left = x*44+20+"px";
+		var top_start = (y*this.TILE_SIZE+this.BLOCK_SIZE);
+		var left_start =  (x*this.TILE_SIZE+(this.BLOCK_SIZE/2));
+		last_point_sprite.style.top = top_start+"px";
+		last_point_sprite.style.left = left_start+"px";
+		
+		/* TODO
+		 * Would love to switch this to CSS animations
+		 * But the state management hasn't been quite right so far
+		 * Keep an eye on this
+		 */
         Mojo.Animation.animateStyle(last_point_sprite, "top", "ease-out",
-			{from: y*44+40,
+			{from: top_start,
 			 to: -10,
 			 duration: 2
 			 }
 			
 		);
 		Mojo.Animation.animateStyle(last_point_sprite, "left", "ease-out",
-			{from: x*44+20,
+			{from: left_start,
 			 to: 330,
 			 duration: 2
 			 }		
 		);
 		           
     }
-    this.controller.get('score').innerHTML = this.score.toString(true);
+    this.score_area.innerHTML = this.score.toString(true);
     
 	if (win_set.length >= this.wild_count && this.block_count > win_set.length) {
         this.putSprite(0, src);
@@ -468,46 +534,91 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
     return win_set.length;
 }
 
-GamePlayAssistant.prototype.setupMap = function(level){
+GamePlayAssistant.prototype.setupMap = function(map){
     this.holes = 0;
     this.empty = 0;
-    
-	this.current_map = this.maps[this.levels[level].map];
+    this.current_map = this.maps[map];
 	
-    for (var position = 0; position < 49; position++) {
-		
-        var tile_type = this.current_map[position];
-        var tile_class = this.tile_classes[tile_type];
-        var tile = this.map_tiles[position];
-        
-        if (tile_type === this.EMPTY_TILE) {
-            this.empty++;
-        }
-		
-        if (tile_type === this.HOLE_TILE) {
-            this.holes++;
-        }
-		
-        tile.tile_type = tile_type;
-        tile.className = "map_tile " + tile_class;
+	this.SIZE = Math.floor(Math.sqrt(this.current_map.length));
+	
+	var tilesize =  Math.floor(320/this.SIZE);
+	tilesize = tilesize - tilesize%2;
+	blocksize = tilesize-4;
+	this.TILE_SIZE = tilesize;
+	this.BLOCK_SIZE = blocksize;
+	var bordersize = (320-this.SIZE*this.TILE_SIZE)/2;
+	
+	Mojo.Log.info(tilesize+","+blocksize+","+bordersize);
+	this.map_area.style.borderWidth = bordersize+"px";
+	this.map_area.style.width = 320- 2*bordersize + "px";
+	this.map_area.style.height = 320- 2*bordersize +"px";
+    
+	
+	
+	for(var i = 0, l = this.map_tiles.length; i < l; i++) {
+		var item = this.map_tiles[i];
+		item.style.width = tilesize+"px";
+        item.style.height = tilesize+"px";
+        item.style.top = item.y * tilesize+"px";
+        item.style.left = item.x * tilesize+"px";
+	}
+	for(var i = 0, l = this.sprite_pool.length; i < l; i++) {
+        var item = this.sprite_pool[i];
+        item.style.width = blocksize+"px";
+        item.style.height = blocksize+"px";
     }
+	for(var b in this.blocks) {
+        var item = this.blocks[b];
+        item.style.width = blocksize+"px";
+        item.style.height = blocksize+"px";
+    }
+	
+	
+   
+	Mojo.Log.info("size: "+this.SIZE);
+	for (var y = 0, l = this.SIZE; y < l; y++) {
+		for (var x = 0, l = this.SIZE; x < l; x++) {
+		    var position = y*this.MAXSIZE + x;
+			var map_position = y*this.SIZE + x;
+			var tile_type = this.current_map[map_position];
+			var tile_class = this.tile_classes[tile_type];
+			var tile = this.map_tiles[position];
+			
+			if (tile_type === this.EMPTY_TILE) {
+				this.empty++;
+			}
+			
+			if (tile_type === this.HOLE_TILE) {
+				this.holes++;
+			}
+			
+			tile.tile_type = tile_type;
+			tile.className = "map_tile " + tile_class;
+		}
+	}
+	
+    
 }
 
 GamePlayAssistant.prototype.startLevel = function(level){
     
     $('level').innerHTML = level + 1;
-    $('score').innerHTML = this.score;
+    $('score').innerHTML = this.score.toString(true);
     
+	Mojo.Log.error("level: "+level);
+    this.level = level;
 	level = this.levels[level];
+	Mojo.Log.error("level obj: "+Object.toJSON(level));
 	for(var b in this.blocks) {
 		this.removeSprite(this.blocks[b]);
 	}
 	this.blocks = {};
+	
     this.block_count = 0;
     this.wild_count = level.wild_count;
     this.multiplier = level.multiplier;
-     
-    this.setupMap(level.map);
+    Mojo.Log.info("map: "+level.map);
+	this.setupMap(level.map);
     this.buildBlockQueue(level.set, level.colors);
     for (var i = 0; i < level.startWith; i++) {
         this.addRandomBlock();
@@ -525,27 +636,31 @@ GamePlayAssistant.prototype.restoreGame = function() {
 	
     if(!ss.valid) {
 		this.saved_state.put({valid: false});
-		this.level = 0;
+		
 		this.startLevel(0);
 	}
-	
+	Mojo.Log.info("saved level: "+ss.level);
     this.block_queue = sq;
     this.level = ss.level;
 	this.moving_to = ss.moving_to; 
     var level = this.levels[this.level];
 	this.setupMap(level.map);	
     this.score = ss.score;
+	this.endless = ss.endless;
     this.wild_count = level.wild_count;
     this.multiplier = level.multiplier;
     $('level').innerHTML = this.level+1;
-    $('score').innerHTML = this.score;
+    $('score').innerHTML = this.score.toString(true);
+	if(this.endless) {
+        this.controller.get("blocks_left_label").innerHTML = "Endless Mode";
+    } 
 	
     this.updateNextBlocks();
     if (sq.length == 0) {
         this.done_button.style.display = 'block';
     }
 	
-    for(var b = 0; b < sb.length; b++) {
+    for(var b = 0, l = sb.length; b < l; b++) {
 		this.putSprite(sb[b][0],sb[b][1]);
 	}	
 	
@@ -564,23 +679,45 @@ GamePlayAssistant.prototype.setup = function(event){
         this.controller.stageController.setWindowOrientation("free");
     }
     
+	if(this.endless) {
+		this.controller.get("blocks_left_label").innerHTML = "Endless Mode";
+	}
+	
+	/* Cache some dom elements */
+    this.last_points_sprite = this.controller.get('last_points_sprite');
+    this.score_area = this.controller.get('score');
+    this.map_area = this.controller.get('map_area');
+	this.map_tile_container = this.controller.get('map_tile_container');
+	this.game_over = this.controller.get('game_over');
+	this.game_over_text = this.controller.get('game_over_text');
+	this.remaining_span = this.controller.get('remaining');
+	this.next_sprites = $$('.sprite.next');
+	
 	/* Set up map elements, and pre-create block sprites */
-	var map = $('map_area');
-    for (var y = 0; y < 7; y++) {
-        for (var x = 0; x < 7; x++) {
-            var position = y * 7 + x;
+	var map = this.map_tile_container;
+	for (var y = 0; y < this.MAXSIZE; y++) {
+        for (var x = 0; x < this.MAXSIZE; x++) {
+            var position = y * this.MAXSIZE + x;
             
 			var s = document.createElement('div');
-            s.addClassName('sprite');
+            s.className = 'sprite';
             s.style.display = "none";
 			s.type = this.SPRITE_TYPE;
             this.sprite_pool.push(s);
 			map.appendChild(s);
 			
+			var f = document.createElement('div');			
+            f.className = "sprite fader";
+            f.style.display = "none";
+			s.fader = f;
+            s.appendChild(f);
+			
 			var m = document.createElement('div');
-            m.addClassName('map_tile');
+            m.className = 'map_tile';
 			m.style.top = y * this.TILE_SIZE + "px";
-            m.style.left = x * this.TILE_SIZE + "px";
+            m.style.left = x * this.TILE_SIZE  + "px";
+			m.x = x;
+			m.y = y;
 			m.position = position;
 			m.type = this.MAP_TILE_TYPE;
 			this.map_tiles.push(m);
@@ -604,49 +741,130 @@ GamePlayAssistant.prototype.setup = function(event){
     }, {
         disabled: false
     });
+	this.controller.setupWidget("endless_level_button", {
+        label: "Go!"
+    }, {
+        disabled: false
+    });
+	
+	this.controller.setupWidget("endless_level_select",
+         this.attributes = {
+             label: 'Level',
+             modelProperty: 'value',
+             min: 1,
+             max: 16
+
+         },
+         this.levelPickerModel = {
+             value: 1
+         });
+
+	
     this.done_button = this.controller.get('done_button');
     /* add event handlers to listen to events from widgets */
     this.controller.listen(document, 'orientationchange', this.handleOrientation.bindAsEventListener(this));
     this.controller.listen(this.done_button, Mojo.Event.tap, this.handleDoneTap.bindAsEventListener(this));
     this.controller.listen(this.controller.get('game_over_button'), Mojo.Event.tap, this.handleOkTap.bindAsEventListener(this));
-    this.controller.listen(this.controller.get('level_over_button'), Mojo.Event.tap, this.handleNextLevelTap.bindAsEventListener(this));
+    this.controller.listen(this.controller.get('level_over_button'), Mojo.Event.tap, this.handleNextLevelTap.bindAsEventListener(this));  
+	this.controller.listen(this.controller.get('endless_level_button'), Mojo.Event.tap, this.handleEndlessLevelTap.bindAsEventListener(this));
+    
+	this.controller.listen(this.controller.sceneElement, Mojo.Event.keydown, this.handleKeys.bindAsEventListener(this));
     
 	/* Map area is a delegate event handler*/
-	this.controller.get('map_area').addEventListener(Mojo.Event.tap, this.handleBlockTap.bind(this));
+	this.map_area.addEventListener(Mojo.Event.tap, this.handleBlockTap.bind(this));
 	    
     
+	
+	
     /* Set up game screen */
-    if (this.restore === 'continue') {       
+    if (!!this.restore) {       
         this.restoreGame();
     } else {
-		this.saved_state.put({valid: false});
-        this.level = 0;
-        this.startLevel(0);
+		this.saved_state.put({valid: false}); 
+		if (this.endless) {
+			this.controller.get('choose_level').style.display = "block";
+		} else {
+			this.startLevel(0);
+		}
     }
+}
+
+GamePlayAssistant.prototype.handleKeys = function(event) {
+	this.pressing = this.pressing || "";
+	var which = event.originalEvent.which;
+	if(which > 90 || which < 48) {
+		return;
+	}
+	this.pressing += String.fromCharCode(which);
+	Mojo.Log.error("now: "+this.pressing);
+	if(this.pressing.length < this.MAGIC.length) {
+		if(this.MAGIC.indexOf(this.pressing) === -1) {
+			Mojo.Log.error('reset');
+			this.pressing = "";
+		}
+		return;
+	}
+	
+	if(this.pressing.indexOf(this.MAGIC) === -1) {
+		this.pressing = "";
+		return;	
+	}
+	
+	if(this.pressing.length > this.MAGIC.length+1) {
+		Mojo.Log.error("parseInt('5'): "+parseInt('5'));
+		Mojo.Log.error('typeof "5"'+typeof "5");
+		if (this.pressing[this.pressing.length - 1] == "G") {
+			var levelString = this.pressing.substring(this.MAGIC.length, this.pressing.length-1);
+			Mojo.Log.error("levelString: "+levelString);
+			Mojo.Log.error('typeof levelString: '+typeof levelString);
+            Mojo.Log.error("levelString === '5' ---"+(levelString==='5'));
+			Mojo.Log.error(levelString+" is "+typeof levelString);
+			var level = parseInt(levelString,10);
+			Mojo.Log.error("5".charCodeAt(0));
+			Mojo.Log.error(levelString.charCodeAt(0));
+			Mojo.Log.error("in keypress, level: "+level);
+			this.pressing = "";
+			this.startLevel(level-1);
+			
+		}
+		/*if(isNaN(parseInt(this.pressing.substr(this.MAGIC.length),10))) {
+			
+			Mojo.Log.error("not a number: |"+this.pressing.substr(this.MAGIC.length)+"|");
+			this.pressing = "";
+			return;
+		}*/
+        
+	}
+	if(this.pressing.length > this.MAGIC.length+3) {
+		this.pressing = "";
+		return;
+	}
+	
+	
 }
 
 /*Breadth-first search of possible path*/
 /*This marks all possible squares, and stores their paths*/
 GamePlayAssistant.prototype.calculatePaths = function(src){
     /* queue structure: [ [point, [[x,y],[x,y],[x,y]]], ... */
-    var bfs_queue = [[src, [[src % 7, Math.floor(src / 7)]]]];
+    var bfs_queue = [[src, [[src % this.MAXSIZE, Math.floor(src / this.MAXSIZE)]]]];
     //First set up closest paths
     while (bfs_queue.length > 0) {
         var to_search = bfs_queue.shift();
         el = to_search[0];
         var path = to_search[1];
         
-        var src_x = el % 7;
-        var src_y = Math.floor(el / 7);
+        var src_x = el % this.MAXSIZE;
+        var src_y = Math.floor(el / this.MAXSIZE);
         var possibles = [[src_x - 1, src_y], [src_x + 1, src_y], [src_x, src_y - 1], [src_x, src_y + 1]];
         
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0, l=possibles.length; i < l; i++) {
             var possible = possibles[i];
             var x = possible[0];
             var y = possible[1];
-            var position = y * 7 + x;
+            var position = y * this.MAXSIZE + x;
             
-            if (x < 0 || y < 0 || x >= 7 || y >= 7) {
+            if (x < 0 || y < 0 || x >= this.SIZE || y >= this.SIZE) {
                 continue;
             }
             if (this.blocks[position]) {
@@ -697,12 +915,14 @@ GamePlayAssistant.prototype.levelComplete = function(cleared){
 GamePlayAssistant.prototype.handleNextLevelTap = function(event) {
 	this.controller.get('level_over').style.display="none";
 	this.level++;
-    if (this.levels[this.level]) {
+    if (!!this.levels[this.level]) {
         this.startLevel(this.level);
     } else {
         this.gameOver(true);
     }
 }
+
+
 
 GamePlayAssistant.prototype.handleDoneTap = function(event){
     this.levelComplete(false);
@@ -715,7 +935,7 @@ GamePlayAssistant.prototype.checkForMoves = function(){
         moves_possible = true;
     } else {
         for (a in this.accounting) {
-            if (this.accounting[a] === 'wild') {
+            if (a === 'wild') {
                 continue;
             }
             if (this.accounting[a] >= 3 - wilds) {
@@ -739,7 +959,7 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
 		Mojo.Log.error('unspecified position');
 		return;
 	}
-    
+    Mojo.Log.info("position: "+position);
 	//If we tapped a color block
     if (target.type === this.SPRITE_TYPE) {
 		/*if (this.prefs && this.prefs.sound) {
@@ -792,12 +1012,13 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
 				}
 			});
 		}*/
+		Mojo.Log.info("Moving from "+this.selectedSrc+" to "+this.moving_to+" along "+Object.toJSON(path));
         this.moveAlongPath(src_block, path, (function(){
-            
+            Mojo.Log.info("callback");
             this.moving = null;
 			this.moving_to = null;
             var matched_count = this.checkForMatch(position);
-            
+            Mojo.Log.info("checked for match");
             
             if (matched_count === 0) {
                 var new_blocks = [];
@@ -835,20 +1056,24 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
 
 
 GamePlayAssistant.prototype.gameOver = function(won){
-    this.game_is_over = true;
+	this.game_is_over = true;
 	
-    var hs = this.high_scores.get();
+	var hs_cookie = this.endless ? this.high_scores_endless : this.high_scores;
+	
+	var hs = hs_cookie.get();
     if (!hs || this.score > hs) {
-        this.high_scores.put(this.score);
+        hs_cookie.put(this.score);
     }
 	
+
+	
 	if(won) {
-		$('game_over_text').innerHTML = "You win!";
+		this.game_over_text.innerHTML = "You win!";
 	} else {
-		$('game_over_text').innerHTML = "Game Over";
+		this.game_over_text.innerHTML = "Game Over";
 	}
-	$('game_over').style.display = "block";
-	$('game_over').style.width = "260px";
+	this.game_over.style.display = "block";
+	this.game_over.style.width = "260px";
 	/*if (this.prefs.sound) {
             this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
                 method: "playFeedback",
@@ -863,4 +1088,9 @@ GamePlayAssistant.prototype.gameOver = function(won){
 GamePlayAssistant.prototype.handleOkTap = function() {
 	this.controller.stageController.popScene();
 	
+}
+
+GamePlayAssistant.prototype.handleEndlessLevelTap = function() {
+	this.controller.get("choose_level").style.display="none";
+    this.startLevel(this.levelPickerModel.value-1);
 }
