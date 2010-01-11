@@ -24,19 +24,21 @@ Number.prototype.toString = function(commas) {
 function StageAssistant() {
 }
 
-StageAssistant.prototype.setup = function() {
+StageAssistant.prototype.setup = function(){
 
-	delete Mojo.Menu.helpItem['checkEnabled'];
-	delete Mojo.Menu.prefsItem['checkEnabled'];
-	var tallScreen = false;
-	if(Mojo && Mojo.Environment && Mojo.Environment.DeviceInfo) {
-		tallScreen = (Mojo.Environment.DeviceInfo.screenHeight === 480);
-	} 
+    delete Mojo.Menu.helpItem['checkEnabled'];
+    delete Mojo.Menu.prefsItem['checkEnabled'];
+    Mojo.Widget._Menu.prototype.kDefaultAppMenuSuffixItems.unshift({label: "High Scores", command:"gliss-hs"});
+        
+    var tallScreen = false;
+    if (Mojo && Mojo.Environment && Mojo.Environment.DeviceInfo) {
+        tallScreen = (Mojo.Environment.DeviceInfo.screenHeight === 480);
+    }
     this.controller.pushScene({
-		name: "SplashScreen",
-		disableSceneScroller: tallScreen
-	});
-	
+        name: "SplashScreen",
+        disableSceneScroller: tallScreen
+    });
+    
 }
 
 StageAssistant.prototype.handleCommand = function(event) {
@@ -47,4 +49,7 @@ StageAssistant.prototype.handleCommand = function(event) {
 	if(event.command === "palm-prefs-cmd") {
 		this.controller.pushScene("preferences");		
 	}
+	if(event.command === "gliss-hs") {
+        this.controller.pushScene("high-scores");       
+    }
 }

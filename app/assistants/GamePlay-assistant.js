@@ -8,104 +8,239 @@
 function GamePlayAssistant(args){
     this.maps = [
 	[
-	0,1,1,1,1,1,0,
-	1,1,1,1,1,1,1,
-	1,1,1,1,1,1,1,
-	1,1,1,0,1,1,1,
-	1,1,1,1,1,1,1,
-	1,1,1,1,1,1,1,
-	0,1,1,1,1,1,0
-	
-	],
-	
-	[
-	 0, 0, 1, 1, 1, 0, 0,
-	 0, 0, 1, 1, 1, 0, 0,
-	 1, 1, 1, 1, 1, 1, 1,
-	 1, 1, 1, 0, 1, 1, 1,
-	 1, 1, 1, 1, 1, 1, 1, 
-	 0, 0, 1, 1, 1, 0, 0, 
-	 0, 0, 1, 1, 1, 0, 0
-	 
-	 ], 
-	 
-	[1, 1, 1, 0, 1, 1, 1, 
-	 1, 1, 1, 0, 1, 1, 1, 
-	 1, 1, 1, 1, 1, 1, 1, 
-	 0, 0, 1, 1, 1, 0, 0, 
-	 1, 1, 1, 1, 1, 1, 1, 
-	 1, 1, 1, 0, 1, 1, 1, 
-	 1, 1, 1, 0, 1, 1, 1], 
-	 
-	[1, 1, 1, 0, 1, 1, 1, 
-	 1, 1, 0, 0, 1, 1, 1, 
-	 1, 1, 1, 1, 1, 0, 1, 
-	 0, 0, 1, 1, 1, 0, 0, 
-	 1, 0, 1, 1, 1, 1, 1, 
-	 1, 1, 1, 0, 0, 1, 1, 
-	 1, 1, 1, 0, 1, 1, 1],
-	 
-	 [0, 1, 1, 1, 1, 1, 1, 0,
-      1, 0, 1, 1, 1, 1, 0, 1,
-      1, 1, 0, 1, 1, 0, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 0, 1, 1, 0, 1, 1,
-      1, 0, 1, 1, 1, 1, 0, 1,
-      0, 1, 1, 1, 1, 1, 1, 0     
-     ],
-	 [0, 1, 1, 0, 0, 1, 1, 0,
-      1, 1, 1, 0, 0, 1, 1, 1,
-      1, 1, 1, 0, 0, 1, 1, 1,
-	  0, 0, 1, 1, 1, 1, 0, 0,
-	  0, 0, 1, 1, 1, 1, 0, 0,
-	  1, 1, 1, 0, 0, 1, 1, 1,
-      1, 1, 1, 0, 0, 1, 1, 1,
-      0, 1, 1, 0, 0, 1, 1, 0	 
+        0,1,1,1,1,1,0,
+		1,1,1,1,1,1,1,
+	    1,1,1,1,1,1,1,
+        1,1,1,0,1,1,1,
+    	1,1,1,1,1,1,1,
+    	1,1,1,1,1,1,1,
+    	0,1,1,1,1,1,0
+	],	
+	[1,1,1,0,1,1,1,
+     1,1,1,0,1,1,1,
+     1,1,1,1,1,1,1,
+     0,0,1,1,1,0,0,
+     1,1,1,1,1,1,1,
+     1,1,1,0,1,1,1,
+     1,1,1,0,1,1,1
 	 ],
-	 [0, 0, 1, 1, 1, 1, 1, 0, 0,
-      0, 0, 1, 1, 1, 1, 1, 0, 0,
-      1, 1, 0, 1, 1, 1, 0, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 0, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1, 1, 
-      1, 1, 0, 1, 1, 1, 0, 1, 1,
-      0, 0, 1, 1, 1, 1, 1, 0, 0, 
-      0, 0, 1, 1, 1, 1, 1, 0, 0,
-          
+	 
+	[1,1,1,0,1,1,1,
+     1,1,0,0,1,1,1,
+     1,1,1,1,1,0,1,
+     0,0,1,1,1,0,0,
+     1,0,1,1,1,1,1,
+     1,1,1,0,0,1,1,
+     1,1,1,0,1,1,1],
+	[
+	 0,0,1,1,1,0,0,
+	 0,0,1,1,1,0,0,
+	 1,1,1,1,1,1,1,
+	 1,1,1,0,1,1,1,
+	 1,1,1,1,1,1,1,
+	 0,0,1,1,1,0,0,
+	 0,0,1,1,1,0,0
+	 
+	 ],	
+	 [
+	   0,1,1,1,1,1,0,
+	   0,0,0,1,0,0,0,
+       0,1,1,1,1,1,0,
+       1,1,1,1,1,1,1,
+       0,1,1,1,1,1,0,
+       0,0,0,1,0,0,0,
+       0,1,1,1,1,1,0
+	 ],
+	  
+	 [
+      0,1,1,1,1,1,1,0,
+      1,0,0,1,1,1,1,1,
+      1,0,0,1,0,0,1,1,
+      1,1,1,1,0,0,1,1,
+      1,1,1,1,1,1,1,1,
+      1,1,0,0,1,1,0,0,
+      0,1,0,0,1,1,0,0,
+      0,1,1,1,1,1,1,1
      ],
-	 [1, 1, 1, 0, 0, 0, 1, 1, 1,
-      1, 1, 1, 0, 0, 0, 1, 1, 1,
-      1, 1, 1, 0, 0, 0, 1, 1, 1,
-      0, 0, 1, 1, 1, 1, 1, 0, 0,
-      0, 0, 1, 1, 0, 1, 1, 0, 0,
-      0, 0, 1, 1, 1, 1, 1, 0, 0, 
-      1, 1, 1, 0, 0, 0, 1, 1, 1,
-      1, 1, 1, 0, 0, 0, 1, 1, 1, 
-	  1, 1, 1, 0, 0, 0, 1, 1, 1,
+	 [1,1,1,1,1,0,0,0,
+      1,1,1,1,1,0,0,0,
+      1,1,0,1,1,0,1,1,
+      1,1,0,1,1,0,1,1,
+      1,1,0,1,1,0,1,1,
+      1,1,0,1,1,0,1,1,
+      0,0,0,1,1,1,1,1,
+      0,0,0,1,1,1,1,1     
+     ],
+	 [0,0,1,1,1,1,0,0,
+      0,0,1,1,1,1,0,0,
+      1,1,0,1,1,0,1,1,
+      1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,
+      1,1,0,1,1,0,1,1,
+      0,0,1,1,1,1,0,0,
+      0,0,1,1,1,1,0,0     
+     ],
+	 [0,1,1,0,0,1,1,0,
+      1,1,1,0,0,1,1,1,
+      1,1,1,0,0,1,1,1,
+      0,0,1,1,1,1,0,0,
+      0,0,1,1,1,1,0,0,
+      1,1,1,0,0,1,1,1,
+      1,1,1,0,0,1,1,1,
+      0,1,1,0,0,1,1,0    
+     ],
+	
+	 
+	 [0,0,0,1,1,1,1,0,
+      1,0,0,1,1,1,0,0,
+      1,1,0,1,1,0,0,0,
+      1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,
+      0,0,0,1,1,0,1,1,
+      0,0,1,1,1,0,0,1,
+      0,1,1,1,1,0,0,0     
+     ],
+	 [0,1,1,1,1,1,1,0,
+      0,0,0,1,1,0,0,0,
+      0,0,1,1,1,1,0,0,
+      1,1,1,1,1,1,1,1,
+      0,1,1,1,1,1,1,0,
+      0,0,1,1,1,1,0,0,
+      0,0,0,1,1,0,0,0,
+      0,0,0,1,1,0,0,0     
+     ],
+	 [1,1,1,1,1,1,1,1,1,
+	  1,1,0,0,1,0,0,1,1,
+	  1,1,0,0,1,0,0,1,1,
+	  1,1,1,1,1,1,1,1,1,
+      1,1,1,1,0,1,1,1,1,
+      1,1,1,1,0,1,1,1,1,
+      1,0,1,1,1,1,1,0,1,
+      1,1,0,0,0,0,0,1,1,
+      1,1,1,1,1,1,1,1,1 
+	 ],
+	 [0,1,1,0,0,0,1,1,0,
+      1,1,1,0,0,0,1,1,1,
+      1,1,1,0,0,0,1,1,1,
+      0,0,1,1,1,1,1,0,0,
+      0,0,1,1,1,1,1,0,0,
+      0,0,1,1,1,1,1,0,0,
+      1,1,1,0,0,0,1,1,1,
+      1,1,1,0,0,0,1,1,1,
+	  0,1,1,0,0,0,1,1,0
 	      
      ],
+	 [0,0,1,0,1,0,1,0,0,
+      0,0,1,0,1,0,1,0,0,
+      1,1,1,1,1,1,1,1,1,
+      0,0,1,1,1,1,1,0,0,
+      1,1,1,1,0,1,1,1,1,
+      0,0,1,1,1,1,1,0,0,
+      1,1,1,1,1,1,1,1,1,
+      0,0,1,0,1,0,1,0,0,
+      0,0,1,0,1,0,1,0,0
+          
+     ],
+	 
+	 [0,0,0,1,1,1,1,0,0,
+      0,0,0,1,1,1,0,0,0,
+      0,0,0,1,1,0,0,0,1,
+      1,1,1,1,0,0,0,1,1,
+      1,1,1,0,0,0,1,1,1,
+	  1,1,1,1,0,1,1,1,1,
+      0,0,0,1,1,1,0,0,0,
+      0,0,0,1,1,1,0,0,0,
+      0,0,0,1,1,1,0,0,0
+	  
+      
+     ],
+	 [0,0,0,1,1,1,0,0,0,
+      0,0,1,1,1,1,1,0,0,
+      0,1,0,1,0,1,0,1,0,
+      1,1,1,1,0,1,1,1,1,
+      1,1,0,0,0,0,0,1,1,
+      1,1,1,1,0,1,1,1,1,
+      0,1,0,1,0,1,0,1,0,
+      0,0,1,1,1,1,1,0,0,
+      0,0,0,1,1,1,0,0,0
+          
+     ],
+	 
+	 [
+	  0,1,0,1,0,1,0,1,0,
+	  1,1,1,1,1,1,1,1,1,
+	  0,1,0,1,0,1,0,1,0,
+      1,1,1,1,1,1,1,1,1,
+	  0,1,0,1,0,1,0,1,0,
+      1,1,1,1,1,1,1,1,1,
+	  0,1,0,1,0,1,0,1,0,
+      1,1,1,1,1,1,1,1,1,
+	  0,1,0,1,0,1,0,1,0
+	 ],
+	 
+	 [
+	  1,1,1,1,0,1,1,1,1,
+	  1,1,1,1,0,1,1,1,1,
+	  1,1,1,0,0,0,1,1,1,
+	  1,1,0,0,0,0,0,1,1,
+	  1,1,0,0,0,0,0,1,1,
+	  1,1,0,0,0,0,0,1,1,
+	  1,1,1,0,0,0,1,1,1,
+	  1,1,1,1,0,1,1,1,1,
+	  1,1,1,1,0,1,1,1,1
+	 
+	 ]
+	 ,
+	  [
+      1,1,1,1,0,1,1,1,1,
+      1,1,1,1,0,1,1,1,1,
+      1,1,1,1,0,1,1,1,1,
+      1,1,1,1,0,1,1,1,1,
+      1,1,1,0,0,0,1,1,1,
+      1,1,0,1,1,1,0,1,1,
+      1,1,0,1,1,1,0,1,1,
+      1,0,1,1,1,1,1,0,1,
+      0,1,1,1,1,1,1,1,0
+     
+     ],
+	 [0,1,1,1,0,1,1,1,0,
+      1,0,1,0,0,0,1,0,1,
+      1,1,1,0,0,0,1,1,1,
+      1,0,1,1,1,1,1,0,1,
+      0,0,1,1,0,1,1,0,0,
+      1,0,1,1,1,1,1,0,1,
+      1,1,1,0,0,0,1,1,1,
+      1,0,1,0,0,0,1,0,1,
+      0,1,1,1,0,1,1,1,0        
+     ]
+	 
 	 
 	 ];
  
     this.levels = [
-	{map: 0, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 5}, 
-	{map: 1, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 10}, 
-    {map: 2, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 15}, 
-    {map: 3, colors: 5, set: 100, startWith: 4,  time: 60, wild_count: 5, multiplier: 20}, 
-    {map: 0, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 35}, 
-    {map: 1, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 30}, 
-    {map: 2, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 35}, 
-    {map: 3, colors: 6, set: 100, startWith: 6,  time: 60, wild_count: 4, multiplier: 40}, 
-    {map: 4, colors: 5, set: 100, startWith: 6,  time: 60, wild_count: 5, multiplier: 45}, 
-    {map: 5, colors: 5, set: 100, startWith: 6,  time: 60, wild_count: 5, multiplier: 50}, 
-    {map: 4, colors: 6, set: 100, startWith: 8,  time: 60, wild_count: 4, multiplier: 60}, 
-    {map: 5, colors: 6, set: 100, startWith: 8,  time: 60, wild_count: 4, multiplier: 70}, 
-    {map: 6, colors: 5, set: 100, startWith: 8,  time: 60, wild_count: 5, multiplier: 80}, 
-    {map: 7, colors: 5, set: 100, startWith: 8,  time: 60, wild_count: 5, multiplier: 90}, 
-    {map: 6, colors: 6, set: 100, startWith: 10, time: 60, wild_count: 4, multiplier: 100}, 
-    {map: 7, colors: 6, set: 100, startWith: 10, time: 60, wild_count: 4, multiplier: 110}
+	{map: 0, colors: 5, wild_count: 5}, 
+	{map: 1, colors: 6, wild_count: 5}, 
+    {map: 2, colors: 6, wild_count: 4}, 
+    {map: 3, colors: 6, wild_count: 5}, 
+    {map: 4, colors: 5, wild_count: 4}, 
     
+	{map: 5, colors: 5,  wild_count: 5}, 
+    {map: 6, colors: 6,  wild_count: 4}, 
+    {map: 7, colors: 6,  wild_count: 5}, 
+    {map: 8, colors: 6,  wild_count: 4}, 
+    {map: 9, colors: 6,  wild_count: 5},  
+	{map: 10, colors: 6, wild_count: 5}, 
+	
+    {map: 11, colors: 6 ,wild_count: 5}, 
+    {map: 12, colors: 6 ,wild_count: 5}, 
+    {map: 13, colors: 6 ,wild_count: 5}, 
+    {map: 14, colors: 6 ,wild_count: 4}, 
+    {map: 15, colors: 6 ,wild_count: 4}, 
+    {map: 16, colors: 6 ,wild_count: 5}, 
+    {map: 17, colors: 6 ,wild_count: 5}, 
+    {map: 18, colors: 6 ,wild_count: 5}, 
+    {map: 19, colors: 6 ,wild_count: 4}, 
+ 
 	];
 	
     /*Constants*/
@@ -139,8 +274,11 @@ function GamePlayAssistant(args){
     this.saved_blocks = new Mojo.Model.Cookie("GameBlocks");
     this.saved_queue = new Mojo.Model.Cookie("BlockQueue");
     this.high_scores = new Mojo.Model.Cookie("HighScores");
-	this.high_scores_endless = new Mojo.Model.Cookie("HighScoresEndless");
-    
+	
+	var hs = this.high_scores.get();
+	if(!!hs && !!hs.highest_level) {
+		this.highest_level = hs.highest_level;
+	}
     //Transient state
     this.selectedSrc = null;
     this.moving = null;
@@ -179,7 +317,11 @@ function GamePlayAssistant(args){
 	
 	pref_cookie = new Mojo.Model.Cookie("Preferences")
 	this.prefs = pref_cookie.get();
-      
+    if(this.prefs == undefined) {
+		this.prefs = {
+			sound: false
+		}
+	}
 }
 
 GamePlayAssistant.prototype.cleanup = function(event){	
@@ -209,8 +351,11 @@ GamePlayAssistant.prototype.cleanup = function(event){
 
 GamePlayAssistant.prototype.updateNextBlocks = function(){
     var nexts = Math.min(3, this.block_queue.length);
-    
+    for(var i = 0; i < this.next_sprites.length; i++) {
+		this.next_sprites[i].style.display = "hidden";
+	}
 	for(var i = 0; i < nexts; i++) {
+		this.next_sprites[i].style.display = "block";
 		this.next_sprites[i].className = "sprite | next "+ this.sprite_classes[this.block_queue[i]];
 	}
 	
@@ -439,9 +584,8 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
 		
         for (var i = 0; i < this.SIZE; i++) {
         	var b = this.blocks[indexer(i)];
-            
-            if (b && (b.tile_type == this.WILD_TILE || matching == this.WILD_TILE || b.tile_type == matching)) {
-                tmp_win_set.push(b);                
+            if (b && (b.tile_type === this.WILD_TILE || matching === this.WILD_TILE || b.tile_type === matching)) {
+				tmp_win_set.push(b);                
                 if (!gettin_wild && b.tile_type === this.WILD_TILE) {
                     gettin_wild = true;
                 } else {
@@ -450,7 +594,8 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
                 }               
             } else {
                 if (tmp_win_set.length > 2) {
-                    win_set = win_set.concat(tmp_win_set);
+					win_set = win_set.concat(tmp_win_set);
+					
                 }
                 if (!!b) {
 					//Remove everything from the tmp set 
@@ -462,8 +607,8 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
                     tmp_win_set = tmp_win_set.splice(j + 1);
                     tmp_win_set.push(b);
                     matching = b.tile_type;
-                } else {                   
-                    tmp_win_set.length = 0;
+				} else {     
+				    tmp_win_set.length = 0;
                     matching = this.WILD_TILE;
                 }
             }           
@@ -475,7 +620,16 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
        
     var wild_count = 0;
    
-   
+   if (win_set.length > 0) {
+       if (this.prefs.sound) {
+           this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
+               method: "playFeedback",
+               parameters: {
+                   name: 'browser_01'
+               }
+           });
+       }
+   }
    for(var w_idx = 0, wl = win_set.length; w_idx < wl; w_idx++) {
    	    var b = win_set[w_idx];
 		
@@ -483,7 +637,7 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
 		//Need to check 
 		//since we double-count intersection tile
         if (b.position === null) {
-            return;
+            continue;
         }
 		//Keep track of wilds for scoring
         if (b.tile_type === this.WILD_TILE) {
@@ -491,10 +645,8 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
         }      
         this.fadeOutSprite(b); 
    }
-    
     score_add = (win_set.length) * (win_set.length - 2) * (wild_count + 1) * this.multiplier;
-	//Mojo.Log.info(win_set.length, win_set.length-2, wild_count, this.multiplier, score_add);
-    if (score_add > 0) {
+	if (score_add > 0) {
     	this.score += score_add;
         var last_point_sprite = this.last_points_sprite;
         last_point_sprite.innerHTML = score_add;
@@ -548,7 +700,6 @@ GamePlayAssistant.prototype.setupMap = function(map){
 	this.BLOCK_SIZE = blocksize;
 	var bordersize = (320-this.SIZE*this.TILE_SIZE)/2;
 	
-	Mojo.Log.info(tilesize+","+blocksize+","+bordersize);
 	this.map_area.style.borderWidth = bordersize+"px";
 	this.map_area.style.width = 320- 2*bordersize + "px";
 	this.map_area.style.height = 320- 2*bordersize +"px";
@@ -575,7 +726,6 @@ GamePlayAssistant.prototype.setupMap = function(map){
 	
 	
    
-	Mojo.Log.info("size: "+this.SIZE);
 	for (var y = 0, l = this.SIZE; y < l; y++) {
 		for (var x = 0, l = this.SIZE; x < l; x++) {
 		    var position = y*this.MAXSIZE + x;
@@ -605,10 +755,8 @@ GamePlayAssistant.prototype.startLevel = function(level){
     $('level').innerHTML = level + 1;
     $('score').innerHTML = this.score.toString(true);
     
-	Mojo.Log.error("level: "+level);
-    this.level = level;
+	this.level = level;
 	level = this.levels[level];
-	Mojo.Log.error("level obj: "+Object.toJSON(level));
 	for(var b in this.blocks) {
 		this.removeSprite(this.blocks[b]);
 	}
@@ -616,11 +764,10 @@ GamePlayAssistant.prototype.startLevel = function(level){
 	
     this.block_count = 0;
     this.wild_count = level.wild_count;
-    this.multiplier = level.multiplier;
-    Mojo.Log.info("map: "+level.map);
-	this.setupMap(level.map);
-    this.buildBlockQueue(level.set, level.colors);
-    for (var i = 0; i < level.startWith; i++) {
+    this.multiplier = 5*(this.level+1);
+    this.setupMap(level.map);
+    this.buildBlockQueue(this.empty*3.5, level.colors);
+    for (var i = 0; i < Math.floor(this.empty/8); i++) {
         this.addRandomBlock();
     }
 	
@@ -648,7 +795,7 @@ GamePlayAssistant.prototype.restoreGame = function() {
     this.score = ss.score;
 	this.endless = ss.endless;
     this.wild_count = level.wild_count;
-    this.multiplier = level.multiplier;
+    this.multiplier = (1+this.level) * 5;
     $('level').innerHTML = this.level+1;
     $('score').innerHTML = this.score.toString(true);
 	if(this.endless) {
@@ -683,6 +830,10 @@ GamePlayAssistant.prototype.setup = function(event){
 		this.controller.get("blocks_left_label").innerHTML = "Endless Mode";
 	}
 	
+	this.a = new Audio();
+	this.a.autoplay = false;
+	this.a.src = Mojo.appPath+"iv.mp3";
+	this.a.autoplay = false;
 	/* Cache some dom elements */
     this.last_points_sprite = this.controller.get('last_points_sprite');
     this.score_area = this.controller.get('score');
@@ -747,12 +898,13 @@ GamePlayAssistant.prototype.setup = function(event){
         disabled: false
     });
 	
+	
 	this.controller.setupWidget("endless_level_select",
          this.attributes = {
              label: 'Level',
              modelProperty: 'value',
              min: 1,
-             max: 16
+             max: this.highest_level
 
          },
          this.levelPickerModel = {
@@ -768,7 +920,7 @@ GamePlayAssistant.prototype.setup = function(event){
     this.controller.listen(this.controller.get('level_over_button'), Mojo.Event.tap, this.handleNextLevelTap.bindAsEventListener(this));  
 	this.controller.listen(this.controller.get('endless_level_button'), Mojo.Event.tap, this.handleEndlessLevelTap.bindAsEventListener(this));
     
-	this.controller.listen(this.controller.sceneElement, Mojo.Event.keydown, this.handleKeys.bindAsEventListener(this));
+	//this.controller.listen(this.controller.sceneElement, Mojo.Event.keydown, this.handleKeys.bindAsEventListener(this));
     
 	/* Map area is a delegate event handler*/
 	this.map_area.addEventListener(Mojo.Event.tap, this.handleBlockTap.bind(this));
@@ -827,6 +979,24 @@ GamePlayAssistant.prototype.handleKeys = function(event) {
 			this.startLevel(level-1);
 			
 		}
+		if (this.pressing[this.pressing.length - 1] == "Q") {
+            var clearString = this.pressing.substring(this.MAGIC.length, this.pressing.length-1);
+            var clear = parseInt(clearString,10);
+            this.pressing = "";
+            this.block_queue.splice(0,clear);
+			this.updateNextBlocks();
+            
+        }
+		if (this.pressing[this.pressing.length - 1] == "D") {
+            var clearString = this.pressing.substring(this.MAGIC.length, this.pressing.length-1);
+            var clear = parseInt(clearString,10);
+            this.pressing = "";
+            for(var i =0; i < clear; i++) {
+				this.addRandomBlock();
+			}
+			this.updateNextBlocks();
+            
+        }
 		/*if(isNaN(parseInt(this.pressing.substr(this.MAGIC.length),10))) {
 			
 			Mojo.Log.error("not a number: |"+this.pressing.substr(this.MAGIC.length)+"|");
@@ -902,14 +1072,14 @@ GamePlayAssistant.prototype.levelComplete = function(cleared){
 		this.controller.get('level_over_text').innerHTML = "No more moves.";
 	}
 	this.controller.get('level_over').style.display="block";
-	/*if (this.prefs && this.prefs.sound) {
+	if (this.prefs.sound) {
             this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
                 method: "playFeedback",
                 parameters: {
-                    name: 'browser_01'
+                    name: 'error_01'
                 }
             });
-        }*/
+        }
 }
 
 GamePlayAssistant.prototype.handleNextLevelTap = function(event) {
@@ -949,6 +1119,9 @@ GamePlayAssistant.prototype.checkForMoves = function(){
     }
 }
 GamePlayAssistant.prototype.handleBlockTap = function(event){
+	if(this.moving != null) {
+		return;
+	}
     var target = event.target;
 	if(!target) {
 		Mojo.Log.error('no target');
@@ -959,17 +1132,16 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
 		Mojo.Log.error('unspecified position');
 		return;
 	}
-    Mojo.Log.info("position: "+position);
-	//If we tapped a color block
+    //If we tapped a color block
     if (target.type === this.SPRITE_TYPE) {
-		/*if (this.prefs && this.prefs.sound) {
+		if (this.prefs.sound) {
 			this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
 				method: "playFeedback",
 				parameters: {
 					name: 'shuffle_03'
 				}
 			});
-		}*/
+		}
 
         if (this.selectedSrc === position) {
 			 //Tapped the same block... deselect
@@ -1003,22 +1175,23 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
         var path = this.paths[position];
         this.clearPaths();
         var src_block = this.blocks[this.selectedSrc];
+		if(src_block == null) {
+			this.selectedSrc = null;
+			return;
+		}
         src_block.removeClassName('selected');
-        /*if (this.prefs.sound) {
+        if (this.prefs.sound) {
 			this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
 				method: "playFeedback",
 				parameters: {
-					name: 'appclose'
+					name: 'card_05'
 				}
 			});
-		}*/
-		Mojo.Log.info("Moving from "+this.selectedSrc+" to "+this.moving_to+" along "+Object.toJSON(path));
-        this.moveAlongPath(src_block, path, (function(){
-            Mojo.Log.info("callback");
+		}
+		this.moveAlongPath(src_block, path, (function(){
             this.moving = null;
 			this.moving_to = null;
             var matched_count = this.checkForMatch(position);
-            Mojo.Log.info("checked for match");
             
             if (matched_count === 0) {
                 var new_blocks = [];
@@ -1058,30 +1231,46 @@ GamePlayAssistant.prototype.handleBlockTap = function(event){
 GamePlayAssistant.prototype.gameOver = function(won){
 	this.game_is_over = true;
 	
-	var hs_cookie = this.endless ? this.high_scores_endless : this.high_scores;
-	
-	var hs = hs_cookie.get();
-    if (!hs || this.score > hs) {
-        hs_cookie.put(this.score);
+	var hs = this.high_scores.get() || {highest_level: 0, levels: 0, endless: {}};
+	Mojo.Log.info("hs.endless: "+hs.endless);
+	if (!!this.endless && (!hs.endless[this.level] || this.score > hs.endless[this.level])) {
+		Mojo.Log.info("adding "+this.score+"to position"+this.level);
+        hs.endless["level"+this.level] = this.score;
+		Mojo.Log.info("hs.endless: "+Object.toJSON(hs.endless));
     }
-	
+	if (!this.endless && this.score > hs.levels) {
+        hs.levels = this.score;
+    }
 
-	
+    if(this.level > hs.highest_level) {
+            hs.highest_level = this.level;
+    }
+    var text;
 	if(won) {
-		this.game_over_text.innerHTML = "You win!";
+		text = "You win!";
+		if (this.prefs.sound) {
+           this.a.play();
+        }
+		hs.winner = true;
+		hs.highest_level = this.levels.length;
+		
+		
 	} else {
-		this.game_over_text.innerHTML = "Game Over";
-	}
-	this.game_over.style.display = "block";
-	this.game_over.style.width = "260px";
-	/*if (this.prefs.sound) {
+		text = "Game Over";
+		if (this.prefs.sound) {
             this.controller.serviceRequest('palm://com.palm.audio/systemsounds', {
                 method: "playFeedback",
                 parameters: {
-                    name: 'delete_01'
+                    name: 'notification_buzz'
                 }
             });
-        }*/
+        }
+	}
+	this.high_scores.put(hs); 
+	this.game_over_text.innerHTML = text;
+	this.game_over.style.display = "block";
+	this.game_over.style.width = "260px";
+	
 	
     
 }

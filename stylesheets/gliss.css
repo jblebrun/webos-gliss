@@ -78,7 +78,7 @@
 }
 
 .map_tile.empty {
-    background-color: #331;
+    background-color: #552;
 	background-image: url(../images/recess.png);
 	
 	
@@ -266,4 +266,20 @@
 #score_text.horizontal {
 	float: right;
 	font-size: 20px;
+}
+
+.palm-row {
+	margin: 0;
+	padding: 0;
+	
+}
+
+
+.hs_level.label {
+	color: blue;
+	margin-right: 20px;
+}
+
+.hs_score.label {
+	color: #662;
 }

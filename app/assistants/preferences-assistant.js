@@ -23,22 +23,33 @@ function PreferencesAssistant() {
 	  
 }
 
-PreferencesAssistant.prototype.setup = function() {
-	/* this function is for setup tasks that have to happen when the scene is first created */
-		
-	/* use Mojo.View.render to render view templates and add them to the scene, if needed. */
-	
-	/* setup widgets here */
-	var toggleAttr = {trueValue: true, trueLabel: "On", 
-               falseValue: false, falseLabel: "Off"}; 
-			
-	this.toggleModel = { value: this.prefs.sound, disabled: false }; 
-	
-	this.controller.setupWidget("sound_toggle", toggleAttr, this.toggleModel); 
-	this.controller.setupWidget("reset_score_button", {},{label: "Reset High Score"});
-	/* add event handlers to listen to events from widgets */
-	this.controller.listen("sound_toggle", Mojo.Event.propertyChange, this.handleSoundToggle.bindAsEventListener(this));
-	this.controller.listen("reset_score_button", Mojo.Event.tap, this.handleResetHighScoreTap.bindAsEventListener(this));
+PreferencesAssistant.prototype.setup = function(){
+    /* this function is for setup tasks that have to happen when the scene is first created */
+    
+    /* use Mojo.View.render to render view templates and add them to the scene, if needed. */
+    
+    /* setup widgets here */
+    var toggleAttr = {
+        trueValue: true,
+        trueLabel: "On",
+        falseValue: false,
+        falseLabel: "Off"
+    };
+    
+    this.controller.setupWidget("sound_toggle", toggleAttr, this.toggleModel = {
+        value: this.prefs.sound,
+        disabled: false
+    });
+    this.controller.setupWidget("theme_toggle", toggleAttr, this.themeToggleModel = {
+        value: this.prefs.theme,
+        disabled: false
+    });
+    this.controller.setupWidget("reset_score_button", {}, {
+        label: "Reset High Score"
+    });
+    /* add event handlers to listen to events from widgets */
+    this.controller.listen("sound_toggle", Mojo.Event.propertyChange, this.handleSoundToggle.bindAsEventListener(this));
+    this.controller.listen("reset_score_button", Mojo.Event.tap, this.handleResetHighScoreTap.bindAsEventListener(this));
 }
 
 PreferencesAssistant.prototype.handleSoundToggle = function(event) {
@@ -51,7 +62,7 @@ PreferencesAssistant.prototype.handleResetHighScoreTap = function(event) {
 	this.controller.showAlertDialog({ 
     onChoose: function(value) { 
         if(value === "yes") {
-			this.high_score_cookie.put(0);
+			this.high_score_cookie.put({highest_level: 0, levels: 0, endless: {}});
 		}
     }, 
     title: "Really Reset Score?", 

@@ -1,19 +1,24 @@
 [
-    {"source": "app\/assistants\/stage-assistant.js"},
+    {"source": "app/assistants/stage-assistant.js"},
+    {"source": "/usr/palm/frameworks/media/media.js"},
     {
         "scenes": "GamePlay",
-        "source": "app\/assistants\/GamePlay-assistant.js"
+        "source": "app/assistants/GamePlay-assistant.js"
     },
     {
         "scenes": "SplashScreen",
-        "source": "app\/assistants\/SplashScreen-assistant.js"
+        "source": "app/assistants/SplashScreen-assistant.js"
     },
     {
         "scenes": "help",
-        "source": "app\/assistants\/help-assistant.js"
+        "source": "app/assistants/help-assistant.js"
     },
     {
         "scenes": "preferences",
-        "source": "app\/assistants\/preferences-assistant.js"
+        "source": "app/assistants/preferences-assistant.js"
+    },
+    {
+        "scenes": "high-scores",
+        "source": "app/assistants/high-scores-assistant.js"
     }
 ]

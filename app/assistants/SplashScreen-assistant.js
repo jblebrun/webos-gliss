@@ -13,6 +13,9 @@ function SplashScreenAssistant() {
 }
 
 SplashScreenAssistant.prototype.setup = function() {
+	
+	
+
 	if (this.controller.stageController.setWindowOrientation) {
         this.controller.stageController.setWindowOrientation("free");
     }
@@ -23,7 +26,6 @@ SplashScreenAssistant.prototype.setup = function() {
         this.tallScreen = (Mojo.Environment.DeviceInfo.screenHeight === 480);
     } 
 	/* use Mojo.View.render to render view templates and add them to the scene, if needed. */
-	this.controller.setupWidget(Mojo.Menu.appMenu, StageAssistant.menuAttr, StageAssistant.menuModel);
 	/* setup widgets here */
 	this.controller.setupWidget('start_button',{label:"Levels Game"},{});
 	this.controller.setupWidget('start_endless_button',{label:"Endless Game"},{});
@@ -47,8 +49,7 @@ SplashScreenAssistant.prototype.setup = function() {
 	
 	this.high_score = new Mojo.Model.Cookie("HighScores");
 	
-	this.high_score_endless = new Mojo.Model.Cookie("HighScoresEndless");
-    this.controller.listen(document, 'orientationchange', this.handleOrientation.bindAsEventListener(this));
+	this.controller.listen(document, 'orientationchange', this.handleOrientation.bindAsEventListener(this));
 
 	
 }
@@ -71,12 +72,33 @@ SplashScreenAssistant.prototype.handleOrientation = function(o){
 
 }
 SplashScreenAssistant.prototype.aboutToActivate = function() {
-	var hs = this.high_score.get() || 0;
+	var scores = this.high_score.get();
+	if(scores == undefined || scores.highest_level == undefined || scores.levels == undefined ||  scores.endless == undefined) {
+		var old_score = scores;
+		scores = { highest_level: 0, levels: old_score || 0, endless: {}};
+		this.high_score.put(scores);
+	}
+	Mojo.Log.info("scores: "+Object.toJSON(scores));
+	var hs = scores.levels || 0;
 	$('high_score').innerHTML = hs.toString(true);
-	hs = this.high_score_endless.get() || 0;
-    $('high_score_endless').innerHTML = hs.toString(true); 
-	 
+	hs = scores.endless || {};
+	var total_endless_score = 0;
+	var max_levels = 20;
+	for(var i = 0; i < max_levels; i++) {
+		var s = hs["level"+i];
+		if(s && typeof s == "number") {
+			total_endless_score += s;
+		}
+	}
+    $('high_score_endless').innerHTML = total_endless_score.toString(true); 
 	var saved_state = new Mojo.Model.Cookie("GameState");
+	
+	if(scores.highest_level > 0) {
+		this.controller.setWidgetModel('start_endless_button', {disabled: false});	
+	} else {
+		this.controller.setWidgetModel('start_endless_button', {disabled: true});
+	}
+	
 	var ss = saved_state.get();
 	if(ss.valid === true) {
 		this.controller.setWidgetModel('continue_button', {disabled: false});
