@@ -21,11 +21,8 @@ SplashScreenAssistant.prototype.setup = function() {
     }
 	/* this function is for setup tasks that have to happen when the scene is first created */
 		
-	this.tallScreen = false;
-    if(Mojo && Mojo.Environment && Mojo.Environment.DeviceInfo) {
-        this.tallScreen = (Mojo.Environment.DeviceInfo.screenHeight === 480);
-    } 
-	/* use Mojo.View.render to render view templates and add them to the scene, if needed. */
+	
+ 	/* use Mojo.View.render to render view templates and add them to the scene, if needed. */
 	/* setup widgets here */
 	this.controller.setupWidget('start_button',{label:"Levels Game"},{});
 	this.controller.setupWidget('start_endless_button',{label:"Endless Game"},{});
@@ -47,10 +44,16 @@ SplashScreenAssistant.prototype.setup = function() {
 	}));
 	
 	
+	//if(!tallScreen) {
+        $$(".info").each(function(e) {
+            e.style.fontSize = "10pt";		
+		});
+    //}
 	this.high_score = new Mojo.Model.Cookie("HighScores");
 	
 	this.controller.listen(document, 'orientationchange', this.handleOrientation.bindAsEventListener(this));
 
+    
 	
 }
 
@@ -124,6 +127,6 @@ SplashScreenAssistant.prototype.cleanup = function(event) {
 }
 
 SplashScreenAssistant.prototype.handleStartTap = function(event, args){
-	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:this.tallScreen},args);
+	this.controller.stageController.pushScene({name:'GamePlay', disableSceneScroller:true},args);
 }
 

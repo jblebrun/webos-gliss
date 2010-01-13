@@ -1,5 +1,11 @@
 /* Put Application specific CSS here. */
 
+body {
+	background-color: #FFF;
+}
+#game_area {
+	background-color: #FFF;
+}
 .half {
 	width: 50%;
 	float: left;
@@ -12,8 +18,15 @@
     height: 50px;	
 	background-color: #FFF;
 	z-index: 2;
+	font-size: 16pt;
 }
 
+#score_area.short {
+	height: 25px;
+    font-size: 10pt;
+	width: 290px;
+	left: 15px;
+}
 #score_area.horizontal {
 	height: 160px;
 	width: 160px;
@@ -48,6 +61,10 @@
     color: white;
 	overflow: hidden;
 	
+}
+
+#map_area.short {
+	top: 25px;
 }
 #map_tile_container {
 	width: 396px;
@@ -253,19 +270,19 @@
 
 #level_text {
 	float: right;
-	font-size: 20px;
+	
 }
 #score_text {
 	float: left;
-	font-size: 20px;
+	
 }
 #level_text.horizontal {
 	float: right;
-	font-size: 20px;
+	
 }
 #score_text.horizontal {
 	float: right;
-	font-size: 20px;
+	
 }
 
 .palm-row {
@@ -282,4 +299,15 @@
 
 .hs_score.label {
 	color: #662;
+}
+
+
+#next_area_short {
+	width: 200px;
+	height: 25px;
+	position: absolute;
+	left: 80px;
+	top: -5px;
+	z-index: 20;
+	
 }

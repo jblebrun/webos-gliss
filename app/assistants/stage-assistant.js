@@ -24,13 +24,14 @@ Number.prototype.toString = function(commas) {
 function StageAssistant() {
 }
 
+var tallScreen = true;
 StageAssistant.prototype.setup = function(){
 
     delete Mojo.Menu.helpItem['checkEnabled'];
     delete Mojo.Menu.prefsItem['checkEnabled'];
     Mojo.Widget._Menu.prototype.kDefaultAppMenuSuffixItems.unshift({label: "High Scores", command:"gliss-hs"});
         
-    var tallScreen = false;
+    tallScreen = false;
     if (Mojo && Mojo.Environment && Mojo.Environment.DeviceInfo) {
         tallScreen = (Mojo.Environment.DeviceInfo.screenHeight === 480);
     }

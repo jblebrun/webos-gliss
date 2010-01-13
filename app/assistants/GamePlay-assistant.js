@@ -353,14 +353,18 @@ GamePlayAssistant.prototype.updateNextBlocks = function(){
     var nexts = Math.min(3, this.block_queue.length);
     for(var i = 0; i < this.next_sprites.length; i++) {
 		this.next_sprites[i].style.display = "hidden";
+		this.short_next_sprites[i].style.display = "hidden";
 	}
 	for(var i = 0; i < nexts; i++) {
 		this.next_sprites[i].style.display = "block";
 		this.next_sprites[i].className = "sprite | next "+ this.sprite_classes[this.block_queue[i]];
+		this.short_next_sprites[i].style.display = "block";
+        this.short_next_sprites[i].className = "sprite | next "+ this.sprite_classes[this.block_queue[i]];
 	}
 	
     if (!this.endless) {
 		this.remaining_span.innerHTML = this.block_queue.length;
+		this.short_remaining_span.innerHTML = this.block_queue.length;
 	}
 }
 
@@ -830,6 +834,13 @@ GamePlayAssistant.prototype.setup = function(event){
 		this.controller.get("blocks_left_label").innerHTML = "Endless Mode";
 	}
 	
+	if(!tallScreen) {
+		$('score_area').addClassName('short');
+		$("map_area").addClassName("short");
+		$("next_area_short").style.webkitTransform="scale(0.5)";
+		$("next_area_short").style.display = "block";
+		
+	}
 	this.a = new Audio();
 	this.a.autoplay = false;
 	this.a.src = Mojo.appPath+"iv.mp3";
@@ -842,7 +853,10 @@ GamePlayAssistant.prototype.setup = function(event){
 	this.game_over = this.controller.get('game_over');
 	this.game_over_text = this.controller.get('game_over_text');
 	this.remaining_span = this.controller.get('remaining');
-	this.next_sprites = $$('.sprite.next');
+	this.short_remaining_span = this.controller.get('remaining_short');
+    
+	this.next_sprites = $$('.sprite.next.normal');
+	this.short_next_sprites = $$('.sprite.next.short');
 	
 	/* Set up map elements, and pre-create block sprites */
 	var map = this.map_tile_container;
