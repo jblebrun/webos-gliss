@@ -24,8 +24,7 @@ body {
 #score_area.short {
 	height: 25px;
     font-size: 10pt;
-	width: 290px;
-	left: 15px;
+	
 }
 #score_area.horizontal {
 	height: 160px;
@@ -270,15 +269,15 @@ body {
 
 #level_text {
 	float: right;
+	margin-right: 10px;
 	
 }
 #score_text {
 	float: left;
-	
+	margin-left: 10px;
 }
 #level_text.horizontal {
 	float: right;
-	
 }
 #score_text.horizontal {
 	float: right;

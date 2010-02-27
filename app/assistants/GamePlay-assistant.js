@@ -381,8 +381,8 @@ GamePlayAssistant.prototype.putSprite = function(type, position){
 	sprite.className = "sprite | " +this.sprite_classes[type];
 	this.accounting[this.sprite_classes[type]]++;
     sprite.tile_type = type;
-    sprite.style.top = map_tile.style.top + "px";
-    sprite.style.left = map_tile.style.left + "px";
+    sprite.style.top = map_tile.style.top;
+    sprite.style.left = map_tile.style.left;
     sprite.style.display = "inline";
 	sprite.fader.style.display = "none";
 	sprite.style.opacity = 1.0;
