@@ -37,7 +37,7 @@ StageAssistant.prototype.setup = function(){
     }
     this.controller.pushScene({
         name: "SplashScreen",
-        disableSceneScroller: tallScreen
+        disableSceneScroller: true
     });
     
 }
