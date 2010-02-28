@@ -353,18 +353,14 @@ GamePlayAssistant.prototype.updateNextBlocks = function(){
     var nexts = Math.min(3, this.block_queue.length);
     for(var i = 0; i < this.next_sprites.length; i++) {
 		this.next_sprites[i].style.display = "hidden";
-		this.short_next_sprites[i].style.display = "hidden";
 	}
 	for(var i = 0; i < nexts; i++) {
 		this.next_sprites[i].style.display = "block";
 		this.next_sprites[i].className = "sprite | next "+ this.sprite_classes[this.block_queue[i]];
-		this.short_next_sprites[i].style.display = "block";
-        this.short_next_sprites[i].className = "sprite | next "+ this.sprite_classes[this.block_queue[i]];
 	}
 	
     if (!this.endless) {
 		this.remaining_span.innerHTML = this.block_queue.length;
-		this.short_remaining_span.innerHTML = this.block_queue.length;
 	}
 }
 
@@ -546,14 +542,17 @@ GamePlayAssistant.prototype.handleOrientation = function(o){
 	
     if (o.position === 4 || o.position === 5) {		
 		for(var i = 0, l = els.length; i<l; i++) {
-			els[i].addClassName('horizontal');
+			els[i].addClassName('horizontal');    
 		}       
     } else if(o.position === 2 || o.position ===3) {   
 	 	
         for(var i = 0, l=els.length; i<l; i++) {
 			els[i].removeClassName('horizontal');
+			
 		}
     }
+	this.last_points_offset_left = parseInt(this.map_area.offsetLeft) || 0;
+    this.last_points_offset_top = parseInt(this.map_area.offsetTop) || 0;
 }
 
 
@@ -655,30 +654,28 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
         var last_point_sprite = this.last_points_sprite;
         last_point_sprite.innerHTML = score_add;
 		last_point_sprite.style.display = "block";
-		var top_start = (y*this.TILE_SIZE+this.BLOCK_SIZE);
-		var left_start =  (x*this.TILE_SIZE+(this.BLOCK_SIZE/2));
+		last_point_sprite.style.opacoty = 1.0;
+		var top_start = (y*this.TILE_SIZE+(this.BLOCK_SIZE/2)) + this.last_points_offset_top;
+		var left_start =  (x*this.TILE_SIZE+(this.BLOCK_SIZE/2)) + this.last_points_offset_left;
 		last_point_sprite.style.top = top_start+"px";
 		last_point_sprite.style.left = left_start+"px";
-		
+		Mojo.Log.info(this.last_points_offset_top+", "+this.last_points_offset_left);
 		/* TODO
 		 * Would love to switch this to CSS animations
 		 * But the state management hasn't been quite right so far
 		 * Keep an eye on this
 		 */
-        Mojo.Animation.animateStyle(last_point_sprite, "top", "ease-out",
-			{from: top_start,
-			 to: -10,
-			 duration: 2
-			 }
-			
-		);
-		Mojo.Animation.animateStyle(last_point_sprite, "left", "ease-out",
-			{from: left_start,
-			 to: 330,
-			 duration: 2
-			 }		
-		);
-		           
+        Mojo.Animation.animateStyle(last_point_sprite, "top", "ease-out", {
+            from: top_start,
+            to: -20,
+            duration: 1.5
+        });
+        
+        Mojo.Animation.animateStyle(last_point_sprite, "left", "ease-out", {
+            from: left_start,
+            to: -20,
+            duration: 1.5
+        });           
     }
     this.score_area.innerHTML = this.score.toString(true);
     
@@ -834,12 +831,11 @@ GamePlayAssistant.prototype.setup = function(event){
 		this.controller.get("blocks_left_label").innerHTML = "Endless Mode";
 	}
 	
-	if(!tallScreen) {
-		$('score_area').addClassName('short');
-		$("map_area").addClassName("short");
-		$("next_area_short").style.webkitTransform="scale(0.5)";
-		$("next_area_short").style.display = "block";
-		
+	if(!tallScreen) {	
+		var els = document.getElementsByClassName("shortchange");
+		for(var i = 0, l=els.length; i<l; i++) {
+			els[i].className += ' short';
+		}
 	}
 	this.a = new Audio();
 	this.a.autoplay = false;
@@ -934,7 +930,7 @@ GamePlayAssistant.prototype.setup = function(event){
     this.controller.listen(this.controller.get('level_over_button'), Mojo.Event.tap, this.handleNextLevelTap.bindAsEventListener(this));  
 	this.controller.listen(this.controller.get('endless_level_button'), Mojo.Event.tap, this.handleEndlessLevelTap.bindAsEventListener(this));
     
-	//this.controller.listen(this.controller.sceneElement, Mojo.Event.keydown, this.handleKeys.bindAsEventListener(this));
+	this.controller.listen(this.controller.sceneElement, Mojo.Event.keydown, this.handleKeys.bindAsEventListener(this));
     
 	/* Map area is a delegate event handler*/
 	this.map_area.addEventListener(Mojo.Event.tap, this.handleBlockTap.bind(this));
@@ -953,6 +949,10 @@ GamePlayAssistant.prototype.setup = function(event){
 			this.startLevel(0);
 		}
     }
+	
+	this.last_points_offset_left = parseInt(this.map_area.offsetLeft) || 0;
+    this.last_points_offset_top = parseInt(this.map_area.offsetTop) || 0;
+	this.handleOrientation(this._orientation);
 }
 
 GamePlayAssistant.prototype.handleKeys = function(event) {

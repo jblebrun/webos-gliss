@@ -1,49 +1,49 @@
 <div id="game_area">
-    <div id="score_area" class="rotatable">
+    <div id="score_area" class="rotatable shortchange">
         <div class="score_wrapper rotatable">
-            <div id="level_text">
+            <div id="level_text" class="rotatable">
                 Level: <span id="level"></span>
             </div>
             <div id="clear_level" class="rotatable">
             </div>
-            <div id="score_text">
-                Score: <span id="score"></span>
+            <div id="score_text" class="rotatable">
+                 <div id="score_label" class="rotatable  shortchange">Score:</div><div id="score" class="rotatable  shortchange"></div>
             </div>
         </div>
     </div>
     <div class="last_points" id="last_points_sprite">
     </div>
-    <div id="game_over" class="level_overlay rotatable">
+    <div id="game_over" class="level_overlay rotatable shortchange">
         <div id="game_over_text">
         </div>
         <div id="game_over_button" x-mojo-element="Button">
         </div>
     </div>
-    <div id="level_over" class="level_overlay rotatable">
+    <div id="level_over" class="level_overlay rotatable  shortchange">
         Level complete!
         <div id="level_over_text">
         </div>
         <div id="level_over_button" x-mojo-element="Button">
         </div>
     </div>
-    <div id="choose_level" class="level_overlay rotatable">
+    <div id="choose_level" class="level_overlay rotatable  shortchange">
         Choose a level to play endlessly.
         <div id="endless_level_select" x-mojo-element="IntegerPicker">
         </div>
         <div id="endless_level_button" x-mojo-element="Button">
         </div>
     </div>
-    <div id="map_area" class="rotatable">
+    <div id="map_area" class="rotatable  shortchange">
         <div id="map_tile_container">
         </div>
     </div>
-    <div id="next_area" class="rotatable">
-        <div id="blocks_left_label" class="right palm-body-text rotatable">
-            Blocks Left: <span id="remaining"></span>
+    <div id="next_area" class="rotatable  shortchange">
+        <div id="blocks_left_area" class="right palm-body-text rotatable">
+            <span id="blocks_left_label" class="shortchange">Blocks Left:</span><span id="remaining"></span>
         </div>
         <div id="clear_blocks_left" class="rotatable">
         </div>
-        <div class="left palm-body-text">
+        <div id="next_label" class="left palm-body-text  shortchange">
             Next:
         </div>
         <div id="clear_next" class="rotatable">
@@ -61,17 +61,4 @@
     </div>
 	
 </div>
-<div id="next_area_short" class="hide">
-        <div class='sprite next short' id='short_next_block_0'>
-        </div>
-        <div class='sprite next short' id='short_next_block_1'>
-        </div>
-        <div class='sprite next short' id='short_next_block_2'>
-        </div>
-		<div class="left"><span id="remaining_short"></span></div>
-        
-		<div class="right hide" id="done_button_short" x-mojo-element="Button">
-        </div>
-        
-        
-    </div>
+

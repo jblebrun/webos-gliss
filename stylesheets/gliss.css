@@ -27,8 +27,12 @@ body {
 	
 }
 #score_area.horizontal {
-	height: 160px;
+	height: 320px;
 	width: 160px;
+}
+
+#score_area.short.horizontal {
+	width: 80px;
 }
 
 #next_area {
@@ -43,11 +47,26 @@ body {
 	
 }
 
+#next_area.short {
+	width: 200px;
+    height: 25px;
+    position: absolute;
+    left: 80px;
+    top: -5px;
+    z-index: 20;
+	-webkit-transform: scale(0.5);
+}
 #next_area.horizontal {
 	top: 160px;
 	height: 160px;
-	width: 160px;
+	width: 150px;
 	
+}
+
+#next_area.horizontal.short {
+	width: 80px;
+	left: 0px;
+	height: 80px;
 }
 #map_area {
     top: 50px;
@@ -78,6 +97,11 @@ body {
 #map_area.horizontal {
 	top: 0px;
 	left: 160px;
+}
+
+#map_area.short.horizontal {
+	top: 0px;
+	left: 80px;
 }
 
 .clear {
@@ -193,10 +217,12 @@ body {
 }
 
 #last_points_sprite {
-	color: white;
+	color: #FF0;
 	float: none;
 	position: absolute;
-	z-index: 2;
+	z-index: 25;
+	font-size: 16pt;
+	font-weight: bold;
 	display: none;
 	
 }
@@ -221,6 +247,10 @@ body {
 .level_overlay.horizontal {
 	left: 170px;
 	top: 70px;	
+}
+.level_overlay.horizontal.short {
+    left: 80px;
+    top: 70px;  
 }
 
 .palm-body-text {
@@ -253,13 +283,37 @@ body {
 	clear: both;
 }
 
-#blocks_left_label.horizontal {
-	float: right;
+#score_label {
+	float: left;
+}
+#score {
+    float: left;
+	margin-left: 5px;
 }
 
+#score_label.horizontal.short {
+	float: none;
+}
+#score.horizontal.short {
+    float: none;
+}
+#blocks_left_label.short {
+    display: none;
+}
+#blocks_left_label.short.horizontal {
+    display: block;
+}
+#next_label.short {
+    display: none;
+}
 #blocks_left_label.horizontal {
 	float: left;
 }
+
+#blocks_left_area.horizontal {
+    float: left;
+}
+
 .highscore {
 	text-align: center;
 	width: 50%;
@@ -277,11 +331,12 @@ body {
 	margin-left: 10px;
 }
 #level_text.horizontal {
-	float: right;
+	float: left;
+	margin-left: 5px;
 }
 #score_text.horizontal {
-	float: right;
-	
+	float: left;
+    margin-left: 5px;
 }
 
 .palm-row {
@@ -298,15 +353,4 @@ body {
 
 .hs_score.label {
 	color: #662;
-}
-
-
-#next_area_short {
-	width: 200px;
-	height: 25px;
-	position: absolute;
-	left: 80px;
-	top: -5px;
-	z-index: 20;
-	
 }
