@@ -81,7 +81,6 @@ SplashScreenAssistant.prototype.aboutToActivate = function() {
 		scores = { highest_level: 0, levels: old_score || 0, endless: {}};
 		this.high_score.put(scores);
 	}
-	Mojo.Log.info("scores: "+Object.toJSON(scores));
 	var hs = scores.levels || 0;
 	$('high_score').innerHTML = hs.toString(true);
 	hs = scores.endless || {};

@@ -566,7 +566,6 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
     //Check the row of the moved block's new position for a win
     var y = this.map_tiles[src].y;
 	var x = this.map_tiles[src].x;
-	Mojo.Log.info("x,y: "+x+", "+y);
 	var MAXSIZE = this.MAXSIZE;
     var indexers = [
         function(i){
@@ -659,7 +658,6 @@ GamePlayAssistant.prototype.checkForMatch = function(src){
 		var left_start =  (x*this.TILE_SIZE+(this.BLOCK_SIZE/2)) + this.last_points_offset_left;
 		last_point_sprite.style.top = top_start+"px";
 		last_point_sprite.style.left = left_start+"px";
-		Mojo.Log.info(this.last_points_offset_top+", "+this.last_points_offset_left);
 		/* TODO
 		 * Would love to switch this to CSS animations
 		 * But the state management hasn't been quite right so far
@@ -787,8 +785,7 @@ GamePlayAssistant.prototype.restoreGame = function() {
 		
 		this.startLevel(0);
 	}
-	Mojo.Log.info("saved level: "+ss.level);
-    this.block_queue = sq;
+	this.block_queue = sq;
     this.level = ss.level;
 	this.moving_to = ss.moving_to; 
     var level = this.levels[this.level];
@@ -1246,12 +1243,9 @@ GamePlayAssistant.prototype.gameOver = function(won){
 	this.game_is_over = true;
 	
 	var hs = this.high_scores.get() || {highest_level: 0, levels: 0, endless: {}};
-	Mojo.Log.info("hs.endless: "+hs.endless);
 	if (!!this.endless && (!hs.endless[this.level] || this.score > hs.endless[this.level])) {
-		Mojo.Log.info("adding "+this.score+"to position"+this.level);
-        hs.endless["level"+this.level] = this.score;
-		Mojo.Log.info("hs.endless: "+Object.toJSON(hs.endless));
-    }
+		hs.endless["level"+this.level] = this.score;
+	}
 	if (!this.endless && this.score > hs.levels) {
         hs.levels = this.score;
     }
