@@ -1,9 +1,9 @@
 {
 	"id": "info.opensourcejason.gliss",
-	"version": "1.6.4",
+	"version": "1.6.6",
 	"vendor": "Emerjbl",
 	"type": "web",
 	"main": "index.html",
 	"title": "Gliss",
-	"icon": "gliss_icon.png"
+	"icon": "gliss2-icon-64.png"
 }

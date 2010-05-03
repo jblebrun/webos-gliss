@@ -1,11 +1,14 @@
 /* Put Application specific CSS here. */
 
 body {
-	background-color: #FFF;
+	background-color: black;
 }
 #game_area {
-	background-color: #FFF;
+	background-color: #222;
+	width: 480px;
+	height: 480px;
 }
+
 .half {
 	width: 50%;
 	float: left;
@@ -14,9 +17,11 @@ body {
     top: 0px;
     left: 0px;
     position: absolute;
-    width: 318px;
-    height: 50px;	
-	background-color: #FFF;
+    width: 312px;
+    height: 42px;	
+	background-color: #EEE;
+	border: 4px solid #CCC;
+	-webkit-border-radius: 24px 24px 12px 12px;	
 	z-index: 2;
 	font-size: 16pt;
 }
@@ -27,8 +32,9 @@ body {
 	
 }
 #score_area.horizontal {
-	height: 320px;
-	width: 160px;
+	height: 150px;
+	width: 152px;
+	border-radius: 12px 12px 12px 12px;
 }
 
 #score_area.short.horizontal {
@@ -40,10 +46,13 @@ body {
     left: 0px;
 	padding: 5px;
     position: absolute;
-    width: 318px;
-    height: 68px;
+    width: 302px;
+    height: 36px;
 	z-index: 2;
-	background-color: #FFF;
+	background-color: #EEE;
+	border-radius: 12px 12px 24px 24px;
+	border: 4px solid #CCC;
+	
 	
 }
 
@@ -55,11 +64,13 @@ body {
     top: -5px;
     z-index: 20;
 	-webkit-transform: scale(0.5);
+	border: 0;
 }
 #next_area.horizontal {
-	top: 160px;
-	height: 160px;
-	width: 150px;
+	top: 158px;
+	height: 148px;
+	width: 142px;
+	border-radius: 12px 12px 12px 12px;
 	
 }
 
@@ -74,10 +85,10 @@ body {
     position: absolute;
     width: 308px;
     height: 308px;
-    background-color: black;
-    border: 6px solid white;
-    color: white;
+    background-color: #AAA;
+    border: 6px solid transparent;
 	overflow: hidden;
+	-webkit-border-radius: 12px;
 	
 }
 
@@ -138,14 +149,15 @@ body {
 }
 .sprite {
 	position: absolute;
-	width: 40px;
-	height: 40px;
+	width: 37px;
+	height: 36px;
 	margin: 2px;
 	z-index: 5;	
-	border: 0;
+	border: 0px solid rgba(255,255,255,0.25);
 	background-image: url(../images/block.png);
 	-webkit-background-size: 100% 100%;
 	background-repeat: no-repeat;
+	-webkit-border-radius: 8px;
 	
 }
 	
@@ -261,7 +273,7 @@ body {
 	font-size: 20px;
 }
 .palm-page-header-wrapper > .icon {
-	background: url(../gliss_icon_small.png) 10px 10px no-repeat;
+	background: url(../gliss2-icon-32.png) 10px 10px no-repeat;
 }
 
 .score_wrapper {
